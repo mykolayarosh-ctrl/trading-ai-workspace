@@ -25,6 +25,21 @@
             color: #8899aa;
             font-size: 14px;
         }
+        .refresh-btn {
+            background: #00d4ff;
+            color: #0a0e1a;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 12px;
+            transition: background 0.2s;
+        }
+        .refresh-btn:hover {
+            background: #00a8cc;
+        }
         .strategy-note {
             background: #1a1a2a;
             border-left: 3px solid #ffaa00;
@@ -142,7 +157,8 @@
 <body>
     <div class="header">
         <h1>📈 Advanced Evening Stock Screener</h1>
-        <p>Gap Up Strategy — Extended Universe with Options Enrichment</p>
+        <p>Gap Up Strategy — Extended Universe</p>
+        <button class="refresh-btn" onclick="window.location.reload(true)">🔄 Refresh Data</button>
     </div>
 
     <div class="strategy-note">
