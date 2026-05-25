@@ -2,3 +2,11 @@
 openclaw.log
 *.tmp
 __pycache__/
+.openclaw/
+*.log
+*.tmp
+__pycache__/
+venv/
+screener.log
+screener_ngrok.log
+
