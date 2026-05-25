@@ -1,0 +1,4 @@
+*.log
+openclaw.log
+*.tmp
+__pycache__/
