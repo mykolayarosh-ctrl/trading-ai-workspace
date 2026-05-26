@@ -1,0 +1,70 @@
+Fetching ETF data...
+SPY: 251 days
+QQQ: 251 days
+DIA: 251 days
+
+Loading daily results...
+Loaded: 101561 rows, 455 tickers
+  SPY merged: 101561 matches
+  QQQ merged: 101561 matches
+  DIA merged: 101561 matches
+
+Saved: research/daily_with_index_factors.csv
+
+======================================================================
+INDEX ETF ANALYSIS
+======================================================================
+Baseline: WinRate=52.15%
+
+--- SPY Market Direction ---
+SPY_Up                              N=  61,859 WR=  62.88% Avg=  0.2575%
+SPY_Down                            N=  39,702 WR=  35.43% Avg= -0.2971%
+SPY_StrongUp (>0.5%)                N=  15,233 WR=  70.70% Avg=  0.5426%
+SPY_StrongDown (<-0.5%)             N=  10,158 WR=  22.87% Avg= -0.7441%
+
+--- Relative Strength ---
+Stock beats SPY                     N=  48,304 WR=  81.77% Avg=  0.6223%
+Stock underperforms SPY             N=  53,257 WR=  25.28% Avg= -0.4868%
+SPY drops but stock drops more      N=   4,041 WR=   0.00% Avg= -1.8301%
+SPY drops but stock rises           N=   2,323 WR= 100.00% Avg=  0.6931%
+SPY up but stock drops              N=   4,372 WR=   0.00% Avg= -0.6846%
+
+--- Best Combinations with SPY ---
+Combination                                               N    WinRate     AvgRet
+--------------------------------------------------------------------------------
+Change>2% + Tuesday                                   2,181     63.41%    0.3492% 🔥
+BB>90 + Change<-2%                                      275     61.09%    0.2862% 🔥
+Change<-2% + Tuesday                                  1,836     60.46%    0.2463% 🔥
+RSI>70 + Change<-2%                                     593     59.36%    0.0995% ⭐
+BB<10 + Change<-2%                                    3,311     59.17%    0.2177% ⭐
+RSI<30 + Change<-2%                                   2,129     57.82%    0.1869% ⭐
+RSI<30 + BB<10                                        5,139     57.68%    0.1210% ⭐
+Change<-2%                                            9,650     57.24%    0.1504% ⭐
+BB<10                                                11,039     56.60%    0.1032% ⭐
+BB<10 + Tuesday                                       2,066     56.58%    0.1702% ⭐
+BB>90 + Tuesday                                       2,662     55.30%    0.1745% ⭐
+Tuesday                                              20,775     55.19%    0.1615% ⭐
+RSI<30                                               11,224     55.17%    0.0878% ⭐
+RSI<30 + Tuesday                                      2,199     53.93%    0.1364% 
+BB<10 + Change>2%                                       306     53.92%    0.0212% 
+RSI>70 + Tuesday                                      2,900     52.45%    0.1112% 
+RSI>70                                               15,140     51.45%    0.0344% 
+Change>2%                                            10,042     51.23%    0.0555% 
+BB>90 + Change>2%                                     3,542     50.76%    0.0670% 
+RSI>70 + BB>90                                        7,126     50.69%    0.0216% 
+RSI>70 + Change>2%                                    2,275     50.68%    0.0692% 
+BB>90                                                13,889     50.68%    0.0305% 
+RSI<30 + Change>2%                                      554     47.65%   -0.1198% 
+SPY_Down + Tuesday                                    4,618     43.48%   -0.0855% 
+BB<10 + SPY_Down                                      4,127     37.87%   -0.3162% 
+RSI>70 + SPY_Down                                     6,434     37.64%   -0.2292% 
+BB>90 + SPY_Down                                      5,354     35.45%   -0.2570% 
+SPY_Down                                             39,702     35.43%   -0.2971% 
+RSI<30 + SPY_Down                                     4,408     35.10%   -0.3194% 
+Change<-2% + SPY_Down                                 3,666     34.21%   -0.4148% 
+
+Summary saved to: research/daily_index_factors_summary.json
+
+======================================================================
+INDEX FACTORS COMPLETE
+======================================================================

@@ -1,0 +1,99 @@
+{
+  "mode": "daily_with_index_etf",
+  "total_observations": 101561,
+  "tickers_tested": 455,
+  "baseline_win_rate": 52.15,
+  "top_combinations": [
+    {
+      "name": "Change>2% + Tuesday",
+      "trades": 2181,
+      "win_rate": 63.411279229711134,
+      "avg_return": 0.34917148701986594
+    },
+    {
+      "name": "BB>90 + Change<-2%",
+      "trades": 275,
+      "win_rate": 61.09090909090909,
+      "avg_return": 0.28618116834151053
+    },
+    {
+      "name": "Change<-2% + Tuesday",
+      "trades": 1836,
+      "win_rate": 60.45751633986928,
+      "avg_return": 0.24628569008498932
+    },
+    {
+      "name": "RSI>70 + Change<-2%",
+      "trades": 593,
+      "win_rate": 59.359190556492415,
+      "avg_return": 0.09954726683873313
+    },
+    {
+      "name": "BB<10 + Change<-2%",
+      "trades": 3311,
+      "win_rate": 59.166414980368465,
+      "avg_return": 0.2176957790171856
+    },
+    {
+      "name": "RSI<30 + Change<-2%",
+      "trades": 2129,
+      "win_rate": 57.82057303898544,
+      "avg_return": 0.1868866271306138
+    },
+    {
+      "name": "RSI<30 + BB<10",
+      "trades": 5139,
+      "win_rate": 57.67659077641565,
+      "avg_return": 0.12097314285031577
+    },
+    {
+      "name": "Change<-2%",
+      "trades": 9650,
+      "win_rate": 57.24352331606217,
+      "avg_return": 0.15041240169018888
+    },
+    {
+      "name": "BB<10",
+      "trades": 11039,
+      "win_rate": 56.59932964942477,
+      "avg_return": 0.10316325963221627
+    },
+    {
+      "name": "BB<10 + Tuesday",
+      "trades": 2066,
+      "win_rate": 56.582768635043564,
+      "avg_return": 0.1701999419947273
+    },
+    {
+      "name": "BB>90 + Tuesday",
+      "trades": 2662,
+      "win_rate": 55.29676934635612,
+      "avg_return": 0.17454444712890613
+    },
+    {
+      "name": "Tuesday",
+      "trades": 20775,
+      "win_rate": 55.186522262334535,
+      "avg_return": 0.16151539458317077
+    },
+    {
+      "name": "RSI<30",
+      "trades": 11224,
+      "win_rate": 55.16749821810406,
+      "avg_return": 0.087846020718191
+    },
+    {
+      "name": "RSI<30 + Tuesday",
+      "trades": 2199,
+      "win_rate": 53.933606184629376,
+      "avg_return": 0.13639230516481277
+    },
+    {
+      "name": "BB<10 + Change>2%",
+      "trades": 306,
+      "win_rate": 53.92156862745098,
+      "avg_return": 0.021235001684991553
+    }
+  ],
+  "date": "2026-05-27T03:47:14.025996"
+}
