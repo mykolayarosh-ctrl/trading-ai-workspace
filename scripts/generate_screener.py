@@ -143,6 +143,42 @@ def compute_score(d):
     # Gap probability estimate
     gap_prob = min(100, (abs(change_pct) * 3) + (range_20d * 0.4) + (min(vol_ratio, 3) * 10))
     
+    # Tier classification based on backtest (Close → Open win rates)
+    # Tier 3: 67.9% WR — |Change|>3% + Change<-3% + (Tuesday)
+    # Tier 2: 65% WR — Change<-2% + (Tuesday)
+    # Tier 1: 57-60% WR — 20D Range <10% OR VolRatio>3x OR Change<-2%
+    tier = ""
+    tier_class = ""
+    tier_desc = ""
+    
+    is_tuesday = False  # Will be set in main if today is Tuesday
+    
+    # Check conditions
+    strong_down = abs(change_pct) > 3 and change_pct < 0
+    moderate_down = change_pct < -2
+    near_low = range_20d < 10
+    high_vol = vol_ratio > 3
+    
+    if strong_down:  # |Change| > 3% and down
+        tier = "T3"
+        tier_class = "tier-3"
+        tier_desc = "Strong down >3% — 67.9% WR"
+    elif moderate_down:  # Change < -2%
+        tier = "T2" 
+        tier_class = "tier-2"
+        tier_desc = "Down >2% — 65% WR"
+    elif near_low or high_vol:
+        tier = "T1"
+        tier_class = "tier-1"
+        if near_low:
+            tier_desc = "Near 20D low — 57.3% WR"
+        else:
+            tier_desc = "High volume >3x — 56.4% WR"
+    else:
+        tier = ""
+        tier_class = ""
+        tier_desc = ""
+    
     ah_signal = "🔥" if vol_ratio > 2 and abs(change_pct) > 2 else "—"
     
     return {
@@ -153,6 +189,9 @@ def compute_score(d):
         'score': score,
         'gap_prob': gap_prob,
         'ah_signal': ah_signal,
+        'tier': tier,
+        'tier_class': tier_class,
+        'tier_desc': tier_desc,
     }
 
 def format_number(n):
@@ -232,14 +271,15 @@ def generate_html(stocks):
                 <th data-sort="money" onclick="sortTable(2)">Price</th>
                 <th data-sort="pct" onclick="sortTable(3)">Change</th>
                 <th data-sort="num" onclick="sortTable(4)">Score</th>
-                <th data-sort="pct" onclick="sortTable(5)">Gap Prob</th>
-                <th data-sort="text" onclick="sortTable(6)">AH Signal</th>
-                <th data-sort="vol" onclick="sortTable(7)">Volume</th>
-                <th data-sort="ratio" onclick="sortTable(8)">Vol Ratio</th>
-                <th data-sort="pct" onclick="sortTable(9)">20D Range</th>
-                <th data-sort="pct" onclick="sortTable(10)">5D Chg</th>
-                <th data-sort="cap" onclick="sortTable(11)">Mkt Cap</th>
-                <th data-sort="text" onclick="sortTable(12)">Sector</th>'''
+                <th data-sort="text" onclick="sortTable(5)">Tier</th>
+                <th data-sort="pct" onclick="sortTable(6)">Gap Prob</th>
+                <th data-sort="text" onclick="sortTable(7)">AH Signal</th>
+                <th data-sort="vol" onclick="sortTable(8)">Volume</th>
+                <th data-sort="ratio" onclick="sortTable(9)">Vol Ratio</th>
+                <th data-sort="pct" onclick="sortTable(10)">20D Range</th>
+                <th data-sort="pct" onclick="sortTable(11)">5D Chg</th>
+                <th data-sort="cap" onclick="sortTable(12)">Mkt Cap</th>
+                <th data-sort="text" onclick="sortTable(13)">Sector</th>'''
     
     header = header.replace(old_headers, new_headers)
     header = header.replace("{last_update}", now).replace("{count}", str(len(stocks)))
@@ -274,6 +314,10 @@ def generate_html(stocks):
                 <td>${s['price']:.2f}</td>
                 <td class="{change_class}">{change_sign}{s['change_pct']:.2f}%</td>
                 <td class="score {score_class}">{s['score']:.1f}</td>
+                <td class="tier-cell">
+                    <span class="tier-badge {s['tier_class']}">{s['tier']}</span>
+                    <br><span style="font-size:9px;color:#8899aa">{s['tier_desc']}</span>
+                </td>
                 <td class="gap-prob {gap_class}">{s['gap_prob']:.1f}%</td>
                 <td>{s['ah_signal']}</td>
                 <td>{s['volume']:,.0f}</td>
