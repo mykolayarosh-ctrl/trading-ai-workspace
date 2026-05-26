@@ -1,0 +1,251 @@
+$MRO: possibly delisted; no price data found  (period=60d) (Yahoo error = "No data found, symbol may be delisted")
+$NOVA: possibly delisted; no price data found  (period=60d) (Yahoo error = "No data found, symbol may be delisted")
+$LAZR: possibly delisted; no price data found  (period=60d) (Yahoo error = "No data found, symbol may be delisted")
+$NKLA: possibly delisted; no price data found  (period=60d) (Yahoo error = "No data found, symbol may be delisted")
+======================================================================
+MULTI-AGENT OVERNIGHT STRATEGY RESEARCH
+======================================================================
+
+Agent 1: DataFetcher — Downloading hourly data + indicators...
+Testing 100 tickers...
+  1. AAPL: 58 days
+  2. MSFT: 58 days
+  3. NVDA: 58 days
+  4. GOOGL: 58 days
+  5. AMZN: 58 days
+  6. META: 58 days
+  7. TSLA: 58 days
+  8. NFLX: 58 days
+  9. AMD: 58 days
+  10. QCOM: 58 days
+  11. JPM: 58 days
+  12. BAC: 58 days
+  13. GS: 58 days
+  14. MS: 58 days
+  15. BLK: 58 days
+  16. C: 58 days
+  17. WFC: 58 days
+  18. USB: 58 days
+  19. PNC: 58 days
+  20. TFC: 58 days
+  21. XOM: 58 days
+  22. CVX: 58 days
+  23. COP: 58 days
+  24. OXY: 58 days
+  25. SLB: 58 days
+  26. MPC: 58 days
+  27. VLO: 58 days
+  28. PSX: 58 days
+  MRO: skipped (no data)
+  29. DVN: 58 days
+  30. JNJ: 58 days
+  31. PFE: 58 days
+  32. UNH: 58 days
+  33. ABBV: 58 days
+  34. LLY: 58 days
+  35. MRK: 58 days
+  36. TMO: 58 days
+  37. ABT: 58 days
+  38. DHR: 58 days
+  39. BMY: 58 days
+  40. WMT: 58 days
+  41. COST: 58 days
+  42. HD: 58 days
+  43. LOW: 58 days
+  44. TGT: 58 days
+  45. NKE: 58 days
+  46. SBUX: 58 days
+  47. MCD: 58 days
+  48. YUM: 58 days
+  49. CMG: 58 days
+  50. DIS: 58 days
+  51. NFLX: 58 days
+  52. CMCSA: 58 days
+  53. T: 58 days
+  54. VZ: 58 days
+  55. TMUS: 58 days
+  56. META: 58 days
+  57. GOOGL: 58 days
+  58. SNAP: 58 days
+  59. PINS: 58 days
+  60. BA: 58 days
+  61. LMT: 58 days
+  62. RTX: 58 days
+  63. NOC: 58 days
+  64. GD: 58 days
+  65. HII: 58 days
+  66. LHX: 58 days
+  67. TXT: 58 days
+  68. TDG: 58 days
+  69. TDY: 58 days
+  70. CAT: 58 days
+  71. DE: 58 days
+  72. AGCO: 58 days
+  73. PCAR: 58 days
+  74. OSK: 58 days
+  75. F: 58 days
+  76. GM: 58 days
+  77. STLA: 58 days
+  78. LCID: 58 days
+  79. RIVN: 58 days
+  80. NEE: 58 days
+  81. DUK: 58 days
+  82. SO: 58 days
+  83. AEP: 58 days
+  84. EXC: 58 days
+  85. SRE: 58 days
+  86. WEC: 58 days
+  87. ES: 58 days
+  88. ETR: 58 days
+  89. CNP: 58 days
+  90. ENPH: 58 days
+  91. SEDG: 58 days
+  92. FSLR: 58 days
+  93. RUN: 58 days
+  NOVA: skipped (no data)
+  94. SPWR: 58 days
+  95. BE: 58 days
+  96. QS: 58 days
+  LAZR: skipped (no data)
+  NKLA: skipped (no data)
+
+✅ Agent 1 complete: 5,568 observations across 93 tickers
+
+======================================================================
+Agent 2: Backtester — Baseline statistics
+======================================================================
+Baseline (all days, all tickers): WinRate=49.68%, AvgReturn=0.0594%
+Total observations: 5,568
+
+======================================================================
+Agent 3: StrategyFinder — Finding best indicator filters...
+======================================================================
+
+======================================================================
+INDICATOR ANALYSIS: Which values predict positive overnight return?
+======================================================================
+
+RSI:
+         Count  WinRate  AvgReturn  Median
+RSI_Bin                                   
+<30        923    53.30       0.22    0.16
+30-40      894    49.22       0.09   -0.02
+40-50     1021    45.25      -0.08   -0.20
+50-60     1019    48.77      -0.04   -0.06
+60-70      829    53.20       0.19    0.11
+>70        882    49.21       0.03   -0.02
+
+BB Position:
+        Count  WinRate  AvgReturn  Median
+BB_Bin                                   
+<10%      284    52.11       0.08    0.08
+10-30%   1330    49.17       0.07   -0.03
+30-50%   1037    47.06      -0.00   -0.12
+50-70%   1076    48.88      -0.04   -0.07
+70-90%   1319    48.75       0.03   -0.04
+>90%      257    60.70       0.49    0.39
+
+ATR %:
+         Count  WinRate  AvgReturn  Median
+ATR_Bin                                   
+<1%       3639    48.94      -0.02   -0.04
+1-2%      1527    51.47       0.13    0.09
+2-3%       308    49.68       0.28    0.00
+3-5%        92    50.00       1.44    0.36
+5-10%        2     0.00      -1.78   -1.78
+
+MACD Hist:
+              Count  WinRate  AvgReturn  Median
+MACD_Bin                                       
+<-0.5           650    52.92       0.25    0.14
+-0.5 to -0.1   1023    49.07       0.13   -0.04
+-0.1 to 0      1057    48.16      -0.01   -0.06
+0 to 0.1       1124    49.64      -0.05    0.00
+0.1 to 0.5     1073    48.09       0.05   -0.06
+>0.5            641    52.57       0.08    0.10
+
+======================================================================
+COMBINATION ANALYSIS: Best indicator + day feature combos
+======================================================================
+
+Combination                                               N    WinRate     AvgRet
+--------------------------------------------------------------------------------
+RSI>70 (overbought) + BB_Pos>90                         164     62.80%    0.5851% 🔥
+RSI<30 (oversold) + MACD_Hist>0 (bullish)                94     60.64%    0.4096% 🔥
+BB_Pos>90 + MACD_Hist>0 (bullish)                       287     59.58%    0.4144% ⭐
+BB_Pos>90                                               324     59.57%    0.4597% ⭐
+BB_Pos>80 (above upper) + BB_Pos>90                     324     59.57%    0.4597% ⭐
+BB_Pos>90 + MACD_Hist<0 (bearish)                        37     59.46%    0.8115% ⭐
+BB_Pos>80 (above upper) + MACD_Hist<0 (bearish)          75     58.67%    0.7614% ⭐
+RSI<35 + MACD_Hist>0 (bullish)                          181     56.35%    0.3775% ⭐
+BB_Pos<20 + MACD_Hist>0 (bullish)                        67     55.22%    0.3355% ⭐
+BB_Pos>80 (above upper)                                 898     53.34%    0.1936% 
+ATR_Pct>3 (volatile) + MACD_Hist<0 (bearish)             45     53.33%    1.7659% 
+RSI<30 (oversold)                                       923     53.30%    0.2162% 
+RSI<30 (oversold) + RSI<35                              923     53.30%    0.2162% 
+RSI<30 (oversold) + BB_Pos<20                           520     53.27%    0.1432% 
+RSI<30 (oversold) + MACD_Hist<-0.2                      492     53.25%    0.2420% 
+RSI>70 (overbought) + BB_Pos>80 (above upper)           478     53.14%    0.1723% 
+RSI<30 (oversold) + BB_Pos<10 (below lower)             189     52.91%    0.1856% 
+BB_Pos>80 (above upper) + MACD_Hist>0 (bullish)         823     52.86%    0.1418% 
+RSI<30 (oversold) + MACD_Hist<0 (bearish)               829     52.47%    0.1943% 
+RSI<35 + BB_Pos<20                                      680     52.21%    0.1270% 
+BB_Pos<10 (below lower)                                 386     52.07%    0.0565% 
+BB_Pos<10 (below lower) + BB_Pos<20                     386     52.07%    0.0565% 
+RSI<35 + BB_Pos<10 (below lower)                        262     51.91%    0.1031% 
+RSI<35                                                1,335     51.84%    0.1900% 
+RSI<35 + MACD_Hist<-0.2                                 656     51.68%    0.2000% 
+BB_Pos<10 (below lower) + MACD_Hist<0 (bearish)         363     51.52%    0.0333% 
+RSI<35 + MACD_Hist<0 (bearish)                        1,153     51.08%    0.1593% 
+MACD_Hist<-0.2                                        1,236     50.40%    0.1612% 
+MACD_Hist<0 (bearish) + MACD_Hist<-0.2                1,236     50.40%    0.1612% 
+BB_Pos<20                                               988     50.10%    0.0455% 
+MACD_Hist>0 (bullish)                                 2,838     49.72%    0.0163% 
+RSI>70 (overbought) + MACD_Hist>0 (bullish)             805     49.69%   -0.0074% 
+BB_Pos<20 + MACD_Hist<0 (bearish)                       920     49.67%    0.0227% 
+MACD_Hist<0 (bearish)                                 2,728     49.60%    0.1037% 
+RSI>70 (overbought)                                     882     49.21%    0.0269% 
+ATR_Pct>3 (volatile)                                     94     48.94%    1.3714% 
+BB_Pos<20 + MACD_Hist<-0.2                              554     48.74%    0.0191% 
+BB_Pos<10 (below lower) + MACD_Hist<-0.2                214     48.60%   -0.0635% 
+ATR_Pct>3 (volatile) + MACD_Hist>0 (bullish)             49     44.90%    1.0091% 
+RSI>70 (overbought) + MACD_Hist<0 (bearish)              77     44.16%    0.3855% 
+
+======================================================================
+Agent 4: HypothesisGenerator — New patterns to test
+======================================================================
+  📌 H1: RSI>70 (overbought) + BB_Pos>90 → WinRate=62.8% (n=164)
+  📌 H1: RSI<30 (oversold) + MACD_Hist>0 (bullish) → WinRate=60.6% (n=94)
+  📌 H1: BB_Pos>90 + MACD_Hist>0 (bullish) → WinRate=59.6% (n=287)
+  📌 H1: BB_Pos>80 (above upper) + BB_Pos>90 → WinRate=59.6% (n=324)
+  📌 H1: BB_Pos>90 + MACD_Hist<0 (bearish) → WinRate=59.5% (n=37)
+  📌 H2: RSI<30 (oversold) → WinRate=53.3% (n=923)
+  📌 H3: RSI>70 (overbought) → WinRate=49.2% (n=882)
+  📌 H4: BB_Position<10% (below lower band) → WinRate=52.1% (n=386)
+  📌 H5: BB_Position>90% (above upper band) → WinRate=59.6% (n=324)
+
+======================================================================
+Agent 5: TraderAdvisor — Actionable Summary
+======================================================================
+
+📊 Today's top signals (score >= 2):
+Ticker    Score    RSI    BB%   ATR%   MACD_H      Close
+------------------------------------------------------------
+GOOGL         5   31.2    8.1   0.73   -0.262 $  383.00
+NVDA          5   28.2   13.5   1.29   -0.419 $  215.25
+DIS           4   34.7    6.3   0.61   -0.062 $  103.00
+WMT           3   17.5   31.8   1.45   -0.138 $  120.26
+COST          3   18.3   23.2   0.86   -3.251 $ 1027.94
+LOW           3   28.0   27.3   0.90   -0.112 $  214.98
+SBUX          3   22.1   25.8   0.89   -0.122 $  103.09
+DE            2   33.4   35.8   1.75    0.474 $  529.15
+DVN           2   33.4   30.5   1.14   -0.047 $   47.22
+PCAR          2   31.1   38.9   0.81    0.036 $  109.38
+SEDG          2   66.5   62.9   3.66   -0.211 $   61.91
+
+💾 Saved detailed results to: backtest_results.csv
+💾 Saved summary to: research_summary.json
+
+======================================================================
+ALL AGENTS COMPLETE
+======================================================================
