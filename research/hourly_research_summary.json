@@ -1,0 +1,8 @@
+{
+  "mode": "hourly",
+  "total_observations": 11178,
+  "tickers_tested": 193,
+  "baseline_win_rate": 50.51,
+  "baseline_avg_return": 0.0632,
+  "date": "2026-05-27T03:41:17.936191"
+}

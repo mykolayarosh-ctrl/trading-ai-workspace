@@ -1,0 +1,70 @@
+{
+  "mode": "daily",
+  "total_observations": 101561,
+  "tickers_tested": 455,
+  "baseline_win_rate": 52.15,
+  "baseline_avg_return": 0.0407,
+  "top_combinations": [
+    {
+      "name": "Change>2% + Tuesday",
+      "trades": 2181,
+      "win_rate": 63.411279229711134,
+      "avg_return": 0.34917148701986594
+    },
+    {
+      "name": "BB>90 + Change<-2%",
+      "trades": 275,
+      "win_rate": 61.09090909090909,
+      "avg_return": 0.28618116834151053
+    },
+    {
+      "name": "Change<-2% + Tuesday",
+      "trades": 1836,
+      "win_rate": 60.45751633986928,
+      "avg_return": 0.24628569008498932
+    },
+    {
+      "name": "RSI>70 + Change<-2%",
+      "trades": 593,
+      "win_rate": 59.359190556492415,
+      "avg_return": 0.09954726683873312
+    },
+    {
+      "name": "BB<10 + Change<-2%",
+      "trades": 3311,
+      "win_rate": 59.166414980368465,
+      "avg_return": 0.2176957790171856
+    },
+    {
+      "name": "MACD_Hist<0 + Change<-2%",
+      "trades": 5932,
+      "win_rate": 57.82198246797034,
+      "avg_return": 0.15761782720915835
+    },
+    {
+      "name": "RSI<30 + Change<-2%",
+      "trades": 2129,
+      "win_rate": 57.82057303898544,
+      "avg_return": 0.18688662713061377
+    },
+    {
+      "name": "RSI<30 + BB<10",
+      "trades": 5139,
+      "win_rate": 57.67659077641565,
+      "avg_return": 0.12097314285031574
+    },
+    {
+      "name": "Change<-2%",
+      "trades": 9650,
+      "win_rate": 57.24352331606217,
+      "avg_return": 0.15041240169018885
+    },
+    {
+      "name": "ATR>2 + Change<-2%",
+      "trades": 9007,
+      "win_rate": 56.844676362828906,
+      "avg_return": 0.15204949362625061
+    }
+  ],
+  "date": "2026-05-27T03:40:35.182083"
+}

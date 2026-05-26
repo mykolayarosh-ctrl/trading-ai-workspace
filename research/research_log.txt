@@ -1,0 +1,448 @@
+$SQ: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$CDAY: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$CMA: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$CTLT: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$DFS: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$FI: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$FLT: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$HES: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$IPG: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$JNPR: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$K: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$MMC: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$MRO: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$PARA: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$PEAK: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$WBA: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$WRK: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$SQ: possibly delisted; no price data found  (period=60d) (Yahoo error = "No data found, symbol may be delisted")
+$CDAY: possibly delisted; no price data found  (period=60d) (Yahoo error = "No data found, symbol may be delisted")
+$CMA: possibly delisted; no price data found  (period=60d) (Yahoo error = "No data found, symbol may be delisted")
+$CTLT: possibly delisted; no price data found  (period=60d) (Yahoo error = "No data found, symbol may be delisted")
+$DFS: possibly delisted; no price data found  (period=60d) (Yahoo error = "No data found, symbol may be delisted")
+STARTING RESEARCH: 500+ tickers, Daily + Hourly
+
+======================================================================
+DAILY RESEARCH: Close → Open + Indicators
+Testing up to 500 tickers, 1 year of daily data...
+======================================================================
+  ... 50 tickers processed
+  ... 100 tickers processed
+  ... 150 tickers processed
+  ... 200 tickers processed
+  ... 250 tickers processed
+  ... 300 tickers processed
+  ... 350 tickers processed
+  ... 400 tickers processed
+  ... 450 tickers processed
+
+✅ Daily research complete: 101,561 observations across 455 tickers
+💾 Saved to: research/daily_indicators_results.csv
+
+======================================================================
+ANALYSIS: Indicator-Based Filters
+======================================================================
+Baseline: WinRate=52.15%, AvgReturn=0.0407%
+Total: 101,561 observations, 455 tickers
+
+--- Single Indicators ---
+
+RSI:
+         Count  WinRate  AvgReturn
+RSI_Bin                           
+<30      11242    55.17       0.09
+30-40    15196    53.21       0.06
+40-50    20659    52.00       0.04
+50-60    21685    51.30       0.03
+60-70    17638    51.15       0.01
+>70      15140    51.45       0.03
+
+BB Position:
+        Count  WinRate  AvgReturn
+BB_Bin                           
+<10%     6042    55.89       0.09
+10-30%  18009    53.34       0.06
+30-50%  18229    51.19       0.02
+50-70%  18621    51.29       0.02
+70-90%  21763    51.38       0.03
+>90%     7588    50.88       0.03
+
+ATR %:
+         Count  WinRate  AvgReturn
+ATR_Bin                           
+<1%        363    47.38       0.01
+1-2%     25459    52.08       0.01
+2-3%     43704    52.49       0.04
+3-5%     27359    52.04       0.07
+5-10%     4591    50.32       0.07
+>10%        85    57.65       0.15
+
+--- Best Combinations (min 50 trades) ---
+Combination                                               N    WinRate     AvgRet
+--------------------------------------------------------------------------------
+Change>2% + Tuesday                                   2,181     63.41%    0.3492% 🔥
+BB>90 + Change<-2%                                      275     61.09%    0.2862% 🔥
+Change<-2% + Tuesday                                  1,836     60.46%    0.2463% 🔥
+RSI>70 + Change<-2%                                     593     59.36%    0.0995% ⭐
+BB<10 + Change<-2%                                    3,311     59.17%    0.2177% ⭐
+MACD_Hist<0 + Change<-2%                              5,932     57.82%    0.1576% ⭐
+RSI<30 + Change<-2%                                   2,129     57.82%    0.1869% ⭐
+RSI<30 + BB<10                                        5,139     57.68%    0.1210% ⭐
+Change<-2%                                            9,650     57.24%    0.1504% ⭐
+ATR>2 + Change<-2%                                    9,007     56.84%    0.1520% ⭐
+ATR>2 + Tuesday                                      15,387     56.74%    0.2152% ⭐
+BB<10 + MACD_Hist<0                                  10,645     56.63%    0.1037% ⭐
+BB<10                                                11,039     56.60%    0.1032% ⭐
+BB<10 + Tuesday                                       2,066     56.58%    0.1702% ⭐
+MACD_Hist>0 + Change<-2%                              3,718     56.32%    0.1389% ⭐
+BB<10 + ATR>2                                         9,118     56.14%    0.1060% ⭐
+MACD_Hist<0 + Tuesday                                10,232     55.92%    0.1552% ⭐
+BB<10 + MACD_Hist>0                                     393     55.73%    0.0889% ⭐
+BB>90 + Tuesday                                       2,662     55.30%    0.1745% ⭐
+RSI<30 + MACD_Hist<0                                 10,800     55.21%    0.0847% ⭐
+Tuesday                                              20,775     55.19%    0.1615% ⭐
+RSI<30                                               11,224     55.17%    0.0878% ⭐
+RSI<30 + ATR>2                                        9,776     54.93%    0.0890% 
+MACD_Hist>0 + Tuesday                                10,542     54.48%    0.1676% 
+RSI<30 + MACD_Hist>0                                    424     54.01%    0.1689% 
+RSI<30 + Tuesday                                      2,199     53.93%    0.1364% 
+BB<10 + Change>2%                                       306     53.92%    0.0212% 
+ATR>2 + MACD_Hist<0                                  38,382     53.45%    0.0593% 
+MACD_Hist<0                                          50,062     53.41%    0.0506% 
+RSI>70 + Tuesday                                      2,900     52.45%    0.1112% 
+
+--- Top Tickers by Win Rate (min 50 trades) ---
+        Trades    WinRate  AvgReturn
+Ticker                              
+PCG        220  62.727273   0.145835
+WMB        220  61.818182   0.098330
+RTX        220  61.363636   0.174072
+DTE        220  60.909091   0.102193
+APH        220  60.909091   0.241291
+IVZ        220  60.909091   0.104063
+KMI        220  60.909091   0.083349
+SCHW       220  60.909091   0.063723
+BA         220  60.909091   0.192850
+KEY        220  60.454545   0.056874
+ETN        220  60.454545   0.148873
+TEL        220  60.454545   0.131241
+NRG        220  60.454545   0.135385
+DD         220  60.000000   0.148479
+CVX        220  60.000000   0.090425
+HST        220  60.000000   0.155690
+SEDG       220  60.000000   0.320198
+RL         220  59.545455   0.148948
+PH         220  59.545455   0.149397
+NEE        220  59.545455   0.127536
+
+💾 Summary saved to: research/daily_research_summary.json
+
+
+
+
+======================================================================
+HOURLY RESEARCH: 60 days, hourly data + indicators
+======================================================================
+  1. AAPL: 58 days
+  2. MSFT: 58 days
+  3. GOOGL: 58 days
+  4. GOOG: 58 days
+  5. AMZN: 58 days
+  6. META: 58 days
+  7. NVDA: 58 days
+  8. TSLA: 58 days
+  9. NFLX: 58 days
+  10. AMD: 58 days
+  11. INTC: 58 days
+  12. QCOM: 58 days
+  13. CRM: 58 days
+  14. ADBE: 58 days
+  15. PYPL: 58 days
+  16. UBER: 58 days
+  17. ABNB: 58 days
+  18. COIN: 58 days
+  19. PLTR: 58 days
+  20. SNOW: 58 days
+  21. ZM: 58 days
+  22. ROKU: 58 days
+  SQ: skipped (no data)
+  23. SHOP: 58 days
+  24. CRWD: 58 days
+  25. NET: 58 days
+  26. DDOG: 58 days
+  27. FSLY: 58 days
+  28. DOCU: 58 days
+  29. OKTA: 58 days
+  30. TWLO: 58 days
+  31. ABBV: 58 days
+  32. ABT: 58 days
+  33. ACN: 58 days
+  34. ADP: 58 days
+  35. AIG: 58 days
+  36. ALL: 58 days
+  37. AMAT: 58 days
+  38. AMGN: 58 days
+  39. AMP: 58 days
+  40. AMT: 58 days
+  41. ANET: 58 days
+  42. AON: 58 days
+  43. APA: 58 days
+  44. APD: 58 days
+  45. APH: 58 days
+  46. APO: 58 days
+  47. ARE: 58 days
+  48. ATO: 58 days
+  49. AVB: 58 days
+  50. AVGO: 58 days
+  51. AXP: 58 days
+  52. AZO: 58 days
+  53. BA: 58 days
+  54. BAC: 58 days
+  55. BAX: 58 days
+  56. BDX: 58 days
+  57. BEN: 58 days
+  58. BG: 58 days
+  59. BIIB: 58 days
+  60. BIO: 58 days
+  61. BK: 55 days
+  62. BKNG: 58 days
+  63. BKR: 58 days
+  64. BLK: 58 days
+  65. BMY: 58 days
+  66. BR: 58 days
+  67. BRO: 58 days
+  68. BSX: 58 days
+  69. BWA: 58 days
+  70. BX: 58 days
+  71. C: 58 days
+  72. CAG: 58 days
+  73. CAH: 58 days
+  74. CAT: 58 days
+  75. CB: 58 days
+  76. CBOE: 58 days
+  77. CBRE: 58 days
+  78. CCI: 58 days
+  79. CCL: 58 days
+  CDAY: skipped (no data)
+  80. CDNS: 58 days
+  81. CDW: 58 days
+  82. CE: 58 days
+  83. CF: 58 days
+  84. CFG: 58 days
+  85. CHD: 58 days
+  86. CHRW: 58 days
+  87. CHTR: 58 days
+  88. CI: 58 days
+  89. CINF: 58 days
+  90. CL: 58 days
+  91. CLX: 58 days
+  CMA: skipped (no data)
+  92. CMCSA: 58 days
+  93. CME: 58 days
+  94. CMG: 58 days
+  95. CMI: 58 days
+  96. CMS: 58 days
+  97. CNC: 58 days
+  98. CNP: 58 days
+  99. COF: 58 days
+  100. COO: 58 days
+  101. COP: 58 days
+  102. COST: 58 days
+  103. CPAY: 58 days
+  104. CPB: 58 days
+  105. CPRT: 58 days
+  106. CPT: 58 days
+  107. CRL: 58 days
+  108. CSGP: 58 days
+  109. CSX: 58 days
+  110. CTAS: 58 days
+  CTLT: skipped (no data)
+  111. CTRA: 45 days
+  112. CTSH: 58 days
+  113. CTVA: 58 days
+  114. CVS: 58 days
+  115. CVX: 58 days
+  116. D: 58 days
+  117. DAL: 58 days
+  118. DD: 58 days
+  119. DE: 58 days
+  DFS: skipped (no data)
+  120. DG: 58 days
+  121. DGX: 58 days
+  122. DHI: 58 days
+  123. DHR: 58 days$FI: possibly delisted; no price data found  (period=60d) (Yahoo error = "No data found, symbol may be delisted")
+$FLT: possibly delisted; no price data found  (period=60d) (Yahoo error = "No data found, symbol may be delisted")
+
+  124. DIS: 58 days
+  125. DLR: 58 days
+  126. DLTR: 58 days
+  127. DOV: 58 days
+  128. DOW: 58 days
+  129. DPZ: 58 days
+  130. DRI: 58 days
+  131. DTE: 58 days
+  132. DUK: 58 days
+  133. DVA: 58 days
+  134. DVN: 58 days
+  135. DXC: 58 days
+  136. DXCM: 58 days
+  137. EA: 58 days
+  138. EBAY: 58 days
+  139. ECL: 58 days
+  140. ED: 58 days
+  141. EFX: 58 days
+  142. EG: 58 days
+  143. EL: 58 days
+  144. ELV: 58 days
+  145. EMN: 58 days
+  146. EMR: 58 days
+  147. ENPH: 58 days
+  148. EOG: 58 days
+  149. EPAM: 58 days
+  150. EQIX: 58 days
+  151. EQR: 58 days
+  152. EQT: 58 days
+  153. ES: 58 days
+  154. ESS: 58 days
+  155. ETN: 58 days
+  156. ETR: 58 days
+  157. EW: 58 days
+  158. EXC: 58 days
+  159. EXPD: 58 days
+  160. EXPE: 58 days
+  161. EXR: 58 days
+  162. F: 58 days
+  163. FAST: 58 days
+  164. FCX: 58 days
+  165. FDS: 58 days
+  166. FDX: 58 days
+  167. FE: 58 days
+  168. FFIV: 58 days
+  FI: skipped (no data)
+  169. FICO: 58 days
+  170. FIS: 58 days
+  171. FITB: 58 days
+  FLT: skipped (no data)
+  172. FMC: 58 days
+  173. FOX: 58 days
+  174. FOXA: 58 days
+  175. FRT: 58 days
+  176. FSLR: 58 days
+  177. FTNT: 58 days
+  178. FTV: 58 days
+  179. GD: 58 days
+  180. GE: 58 days
+  181. GEHC: 58 days
+  182. GILD: 58 days
+  183. GIS: 58 days
+  184. GL: 58 days
+  185. GPC: 58 days
+  186. GPN: 58 days
+  187. GRMN: 58 days
+  188. GS: 58 days
+  189. GWW: 58 days
+  190. HAL: 58 days
+  191. HAS: 58 days
+  192. HBAN: 58 days
+  193. HCA: 58 days
+💾 Saved to: research/hourly_indicators_results.csv
+
+======================================================================
+INDICATOR ANALYSIS: Which values predict positive overnight return?
+======================================================================
+
+RSI:
+         Count  WinRate  AvgReturn  Median
+RSI_Bin                                   
+<30       1666    54.08       0.24    0.19
+30-40     1759    50.31       0.13    0.02
+40-50     2174    49.36      -0.10   -0.03
+50-60     2086    46.40      -0.12   -0.13
+60-70     1691    51.86       0.08    0.06
+>70       1802    52.28       0.23    0.11
+
+BB Position:
+        Count  WinRate  AvgReturn  Median
+BB_Bin                                   
+<10%      598    51.17       0.07    0.04
+10-30%   2592    52.62       0.17    0.10
+30-50%   2062    47.82      -0.11   -0.10
+50-70%   2163    48.54      -0.11   -0.08
+70-90%   2686    50.30       0.14    0.01
+>90%      505    51.88       0.25    0.11
+
+ATR %:
+         Count  WinRate  AvgReturn  Median
+ATR_Bin                                   
+<1%       6056    49.60       0.00   -0.01
+1-2%      4646    51.64       0.10    0.09
+2-3%       396    51.01       0.47    0.13
+3-5%        74    51.35       0.56    0.40
+5-10%        6    50.00      -2.24   -2.15
+
+MACD Hist:
+              Count  WinRate  AvgReturn  Median
+MACD_Bin                                       
+<-0.5          1143    51.71       0.12    0.09
+-0.5 to -0.1   2385    51.19       0.08    0.05
+-0.1 to 0      1984    51.36       0.09    0.05
+0 to 0.1       2002    47.55      -0.11   -0.09
+0.1 to 0.5     2508    49.16       0.03   -0.03
+>0.5           1142    54.47       0.30    0.20
+
+======================================================================
+COMBINATION ANALYSIS: Best indicator + day feature combos
+======================================================================
+
+Combination                                               N    WinRate     AvgRet
+--------------------------------------------------------------------------------
+BB_Pos>80 (above upper) + MACD_Hist<-0.2                 41     58.54%    0.5902% ⭐
+ATR_Pct>3 (volatile) + MACD_Hist>0 (bullish)             31     58.06%    1.1704% ⭐
+BB_Pos>80 (above upper) + MACD_Hist<0 (bearish)         159     57.23%    0.5517% ⭐
+BB_Pos>90 + MACD_Hist<0 (bearish)                        49     57.14%    0.3671% ⭐
+RSI>70 (overbought) + BB_Pos>90                         349     56.45%    0.3579% ⭐
+BB_Pos<10 (below lower) + MACD_Hist>0 (bullish)          59     55.93%    0.1382% ⭐
+RSI<30 (oversold) + MACD_Hist<0 (bearish)             1,512     54.17%    0.2587% 
+RSI<30 (oversold)                                     1,663     54.06%    0.2401% 
+RSI<30 (oversold) + RSI<35                            1,663     54.06%    0.2401% 
+RSI<30 (oversold) + BB_Pos<20                           966     53.93%    0.1978% 
+RSI<30 (oversold) + MACD_Hist<-0.2                      906     53.86%    0.2901% 
+RSI<35 + MACD_Hist<-0.2                               1,226     53.83%    0.2413% 
+RSI>70 (overbought) + BB_Pos>80 (above upper)           973     53.65%    0.2993% 
+RSI<35 + BB_Pos<20                                    1,294     53.63%    0.1857% 
+BB_Pos<20 + MACD_Hist<0 (bearish)                     1,830     53.28%    0.1429% 
+RSI<30 (oversold) + BB_Pos<10 (below lower)             389     53.21%    0.0898% 
+BB_Pos<20 + MACD_Hist<-0.2                            1,062     53.20%    0.1820% 
+BB_Pos<20                                             1,980     53.18%    0.1364% 
+RSI<35 + MACD_Hist<0 (bearish)                        2,152     53.16%    0.2147% 
+BB_Pos<10 (below lower)                                 821     53.11%    0.0969% 
+BB_Pos<10 (below lower) + BB_Pos<20                     821     53.11%    0.0969% 
+RSI<35 + BB_Pos<10 (below lower)                        532     53.01%    0.0766% 
+RSI<30 (oversold) + MACD_Hist>0 (bullish)               151     52.98%    0.0537% 
+BB_Pos<10 (below lower) + MACD_Hist<0 (bearish)         762     52.89%    0.0937% 
+RSI<35                                                2,477     52.85%    0.1914% 
+RSI>70 (overbought) + MACD_Hist>0 (bullish)           1,599     52.66%    0.2288% 
+BB_Pos<10 (below lower) + MACD_Hist<-0.2                441     52.61%    0.0850% 
+RSI>70 (overbought)                                   1,802     52.28%    0.2293% 
+BB_Pos>80 (above upper)                               1,848     52.27%    0.2632% 
+BB_Pos>90                                               661     52.19%    0.2400% 
+BB_Pos>80 (above upper) + BB_Pos>90                     661     52.19%    0.2400% 
+BB_Pos<20 + MACD_Hist>0 (bullish)                       150     52.00%    0.0570% 
+BB_Pos>90 + MACD_Hist>0 (bullish)                       611     51.88%    0.2312% 
+MACD_Hist<-0.2                                        2,460     51.87%    0.1270% 
+MACD_Hist<0 (bearish) + MACD_Hist<-0.2                2,460     51.87%    0.1270% 
+BB_Pos>80 (above upper) + MACD_Hist>0 (bullish)       1,688     51.84%    0.2365% 
+MACD_Hist<0 (bearish)                                 5,516     51.40%    0.0928% 
+ATR_Pct>3 (volatile)                                     80     51.25%    0.3512% 
+RSI<35 + MACD_Hist>0 (bullish)                          325     50.77%    0.0365% 
+RSI>70 (overbought) + MACD_Hist<-0.2                     56     50.00%    0.4543% 
+💾 Summary saved to: research/hourly_research_summary.json
+
+======================================================================
+ALL RESEARCH COMPLETE
+======================================================================
+Results in: research/
+  - daily_indicators_results.csv
+  - daily_research_summary.json
+  - hourly_indicators_results.csv
+  - hourly_research_summary.json
