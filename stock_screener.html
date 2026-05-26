@@ -97,6 +97,12 @@
             border-bottom: 1px solid #1a2332;
         }
         tr:hover { background: #111a2a; }
+        th {
+            cursor: pointer;
+            user-select: none;
+        }
+        th.sort-asc::after { content: ' ▲'; font-size: 10px; color: #00d4ff; }
+        th.sort-desc::after { content: ' ▼'; font-size: 10px; color: #00d4ff; }
         .ticker {
             font-weight: bold;
             color: #00d4ff;
@@ -182,19 +188,19 @@
     <table>
         <thead>
             <tr>
-                <th>#</th>
-                <th>Ticker</th>
-                <th>Price</th>
-                <th>Change</th>
-                <th>Score</th>
-                <th>Gap Prob</th>
-                <th>AH Signal</th>
-                <th>Volume</th>
-                <th>Vol Ratio</th>
-                <th>20D Range</th>
-                <th>5D Chg</th>
-                <th>Mkt Cap</th>
-                <th>Sector</th>
+                <th data-sort="num" onclick="sortTable(0)">#</th>
+                <th data-sort="text" onclick="sortTable(1)">Ticker</th>
+                <th data-sort="money" onclick="sortTable(2)">Price</th>
+                <th data-sort="pct" onclick="sortTable(3)">Change</th>
+                <th data-sort="num" onclick="sortTable(4)">Score</th>
+                <th data-sort="pct" onclick="sortTable(5)">Gap Prob</th>
+                <th data-sort="text" onclick="sortTable(6)">AH Signal</th>
+                <th data-sort="vol" onclick="sortTable(7)">Volume</th>
+                <th data-sort="ratio" onclick="sortTable(8)">Vol Ratio</th>
+                <th data-sort="pct" onclick="sortTable(9)">20D Range</th>
+                <th data-sort="pct" onclick="sortTable(10)">5D Chg</th>
+                <th data-sort="cap" onclick="sortTable(11)">Mkt Cap</th>
+                <th data-sort="text" onclick="sortTable(12)">Sector</th>
             </tr>
         </thead>
         <tbody>
@@ -4720,5 +4726,44 @@
         <span style="color: #ff5555">Red</span> = High gap probability (≥70%) | 
         <span style="color: #00ff88">Green</span> = Positive change
     </div>
+    <script>
+    (function() {
+        let sortDir = {};
+        function parseVal(text, type) {
+            text = text.trim();
+            if (type === 'num') return parseFloat(text.replace(/[^0-9.\-]/g, '')) || 0;
+            if (type === 'money') return parseFloat(text.replace(/[$,]/g, '')) || 0;
+            if (type === 'pct') return parseFloat(text.replace(/[%+,]/g, '')) || 0;
+            if (type === 'vol') return parseFloat(text.replace(/,/g, '')) || 0;
+            if (type === 'ratio') return parseFloat(text.replace(/x/g, '')) || 0;
+            if (type === 'cap') {
+                let val = parseFloat(text.replace(/[$,]/g, '')) || 0;
+                if (text.includes('T')) val *= 1000;
+                return val;
+            }
+            return text.toLowerCase();
+        }
+        window.sortTable = function(n) {
+            const table = document.querySelector('table tbody');
+            const headers = document.querySelectorAll('table thead th');
+            const type = headers[n].getAttribute('data-sort') || 'text';
+            const rows = Array.from(table.rows);
+            const dir = sortDir[n] === 'asc' ? 'desc' : 'asc';
+            sortDir = {}; sortDir[n] = dir;
+            headers.forEach(h => h.classList.remove('sort-asc','sort-desc'));
+            headers[n].classList.add(dir === 'asc' ? 'sort-asc' : 'sort-desc');
+            rows.sort((a, b) => {
+                let av = a.cells[n] ? a.cells[n].textContent : '';
+                let bv = b.cells[n] ? b.cells[n].textContent : '';
+                av = parseVal(av, type); bv = parseVal(bv, type);
+                if (typeof av === 'number' && typeof bv === 'number') {
+                    return dir === 'asc' ? av - bv : bv - av;
+                }
+                return dir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
+            });
+            rows.forEach(r => table.appendChild(r));
+        };
+    })();
+    </script>
 </body>
 </html>
