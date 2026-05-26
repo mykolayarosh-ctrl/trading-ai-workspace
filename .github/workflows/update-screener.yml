@@ -1,0 +1,33 @@
+name: Update Stock Screener
+
+on:
+  schedule:
+    # Every hour during US trading hours (Mon-Fri 14:30-21:00 UTC)
+    - cron: '30 14-21 * * 1-5'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install yfinance pandas lxml
+
+      - name: Generate screener
+        run: python scripts/generate_screener.py
+        timeout-minutes: 10
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add stock_screener.html
+          git diff --cached --quiet || git commit -m "Auto-update stock screener: $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push
