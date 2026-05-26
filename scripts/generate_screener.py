@@ -89,7 +89,7 @@ _EXTENDED_FALLBACK = [
     "DOCN","ASAN","RBLX","U","PATH","AI","SOUN","ARM","SMCI","DJT",
     "HOOD","SOFI","AFRM","RBLX","GTLB","WOLF","ENPH","SEDG","FSLR","RUN",
     "ARRY","NOVA","SPWR","BE","QS","LAZR","FSR","NKLA","GOEV","FFIE",
-    "JOBY","ACHR","LILM","EH"," Vertical aerospace / EV / space / clean energy
+    "JOBY","ACHR","LILM","EH",
 ]
 
 
