@@ -5,14 +5,24 @@ from urllib.request import urlopen, Request
 from urllib.error import HTTPError
 
 def fetch_sp500_tickers():
-    url = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
-    try:
-        import pandas as pd
-        tables = pd.read_html(url)
-        return tables[0]['Symbol'].tolist()
-    except Exception:
-        # Fallback
-        return []
+    """Fetch S&P 500 tickers from Wikipedia CSV mirror."""
+    urls = [
+        "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+        "https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv",
+    ]
+    for url in urls:
+        try:
+            if url.endswith('.csv'):
+                import pandas as pd
+                df = pd.read_csv(url)
+                return df['Symbol'].tolist()
+            else:
+                import pandas as pd
+                tables = pd.read_html(url)
+                return tables[0]['Symbol'].tolist()
+        except Exception:
+            continue
+    return []
 
 def fetch_nasdaq100_tickers():
     url = "https://en.wikipedia.org/wiki/NASDAQ-100"
@@ -27,6 +37,61 @@ def fetch_nasdaq100_tickers():
         return []
     except Exception:
         return []
+
+# Extended large-cap + growth fallback — covers most liquid stocks
+_EXTENDED_FALLBACK = [
+    # Mag7 + mega tech
+    "AAPL","MSFT","GOOGL","GOOG","AMZN","TSLA","META","NVDA","NFLX","AMD",
+    "INTC","QCOM","CRM","ADBE","PYPL","UBER","ABNB","COIN","PLTR","SNOW",
+    "ZM","ROKU","SQ","SHOP","CRWD","NET","DDOG","FSLY","DOCU","OKTA","TWLO",
+    # S&P 500 large cap (partial, most liquid)
+    "ABBV","ABT","ACN","ADP","AIG","ALL","AMAT","AMGN","AMP","AMT","AMGN",
+    "ANET","ANTM","AON","APA","APD","APH","APO","ARE","ATO","AVB","AVGO",
+    "AXP","AZO","BA","BAC","BAX","BDX","BEN","BG","BIIB","BIO","BK",
+    "BKNG","BLK","BMY","BR","BSX","BURL","BX","C","CAG","CAH","CARR",
+    "CAT","CB","CBOE","CBRE","CCI","CCL","CDNS","CDW","CE","CF","CFG",
+    "CHD","CHRW","CHTR","CI","CINF","CL","CLX","CMA","CMCSA","CME","CMG",
+    "CMI","CMS","CNC","CNP","COF","COO","COP","COST","CPB","CPRT","CPT",
+    "CRL","CSGP","CSX","CTAS","CTLT","CTRA","CVS","CVX","D","DAL","DD",
+    "DE","DFS","DG","DGX","DHI","DHR","DIS","DLR","DOV","DOW","DPZ",
+    "DRI","DTE","DUK","DVA","DVN","EA","EBAY","ECL","ED","EFX","EIX",
+    "EL","ELV","EMN","EMR","EOG","EPAM","EQR","EQT","ES","ESS","ETN",
+    "ETR","EWC","EW","EXC","EXPD","EXPE","EXR","F","FANG","FAST","FCX",
+    "FDX","FE","FICO","FIS","FI","FISV","FLT","FMC","FRT","FTNT","FTV",
+    "GD","GE","GEHC","GILD","GIS","GL","GLW","GM","GPC","GPN","GRMN",
+    "GS","GWW","HAL","HAS","HBAN","HCA","HD","HES","HIG","HII","HLT",
+    "HOLX","HON","HPE","HPQ","HRL","HSIC","HST","HSY","HUM","HWM","IBM",
+    "ICE","IDXX","IEX","IFF","ILMN","INCY","INTU","IP","IPG","IQV","IR",
+    "IRM","ISRG","IT","ITW","IVZ","JCI","JKHY","JNJ","JNPR","JPM","K",
+    "KDP","KEY","KEYS","KHC","KIM","KLAC","KMB","KMI","KMX","KO","KR",
+    "L","LDOS","LEN","LH","LHX","LIN","LKQ","LLY","LMT","LNT","LOW",
+    "LRCX","LUV","LVS","LW","LYB","LYV","MA","MAA","MAR","MAS","MCD",
+    "MCHP","MCK","MCO","MDLZ","MDT","MET","META","MGM","MHK","MKC","MKTX",
+    "MLM","MMC","MMM","MNST","MO","MOH","MOS","MPC","MPWR","MRK","MRNA",
+    "MRO","MS","MSCI","MSFT","MSI","MTB","MTCH","MTD","MU","NCLH","NDAQ",
+    "NEE","NEM","NI","NKE","NOC","NOW","NRG","NSC","NTAP","NTRS","NUE",
+    "NVR","NWS","NWSA","O","ODFL","OKE","OMC","ON","ORCL","ORLY","OXY",
+    "PANW","PARA","PAYC","PAYX","PCAR","PEAK","PEG","PENN","PEP","PFE",
+    "PFG","PG","PGR","PH","PHM","PKG","PLD","PM","PNC","PNR","PNW",
+    "POOL","PPG","PPL","PRU","PSA","PSX","PTC","PWR","PXD","RCL","REG",
+    "REGN","RF","RHI","RJF","RL","RMD","ROK","ROL","ROP","ROST","RSG",
+    "RTX","RVTY","SBAC","SBNY","SBUX","SCHW","SEE","SHW","SJM","SNA","SNPS",
+    "SO","SPG","SPGI","SRE","STE","STLD","STT","STX","STZ","SWK","SWKS",
+    "SYF","SYK","SYY","T","TAP","TDG","TDY","TECH","TEL","TER","TFC",
+    "TFX","TGT","TJX","TMO","TMUS","TPR","TRGP","TRMB","TROW","TRV","TSCO",
+    "TT","TTWO","TXN","TXT","TYL","UAL","UDR","UHS","ULTA","UNH","UNP",
+    "UPS","URI","USB","V","VFC","VLO","VMC","VNO","VRSK","VRSN","VRTX",
+    "VTR","VTRS","VZ","WAB","WAT","WBA","WBD","WDC","WEC","WELL","WFC",
+    "WMB","WM","WMT","WRK","WST","WTW","WY","WYNN","XEL","XOM","XRAY",
+    "XYL","YUM","ZBH","ZBRA","ZION","ZTS","CEG","VST","CRGY","GEV",
+    # Additional popular mid/growth
+    "RIVN","LCID","DDOG","MDB","SNOW","NET","OKTA","DDOG","CFLT","S",
+    "DOCN","ASAN","RBLX","U","PATH","AI","SOUN","ARM","SMCI","DJT",
+    "HOOD","SOFI","AFRM","RBLX","GTLB","WOLF","ENPH","SEDG","FSLR","RUN",
+    "ARRY","NOVA","SPWR","BE","QS","LAZR","FSR","NKLA","GOEV","FFIE",
+    "JOBY","ACHR","LILM","EH"," Vertical aerospace / EV / space / clean energy
+]
+
 
 def yf_ticker_info(ticker):
     """Fetch basic info for a ticker via yfinance rapidapi-style or direct."""
@@ -235,29 +300,94 @@ def main():
     tickers = list(dict.fromkeys(sp500 + nasdaq))
     
     if not tickers:
-        # Hard fallback
-        tickers = ["AAPL","MSFT","GOOGL","AMZN","TSLA","META","NVDA","NFLX","AMD","QCOM",
-                   "INTC","CRM","ADBE","PYPL","UBER","ABNB","COIN","PLTR","SNOW","ZM",
-                   "ROKU","SQ","SHOP","CRWD","NET","DDOG","FSLY","DOCU","OKTA","TWLO"]
+        tickers = _EXTENDED_FALLBACK
     
     print(f"Processing {len(tickers)} tickers...")
     stocks = []
     
-    for ticker in tickers:
-        d = yf_ticker_info(ticker)
-        if not d:
-            continue
-        # Filters
-        if d['price'] < 10:
-            continue
-        if d['volume'] < 500_000:
-            continue
-        if d['market_cap'] < 2_000_000_000:
+    # Batch download for speed
+    import yfinance as yf
+    batch_size = 100
+    for i in range(0, len(tickers), batch_size):
+        batch = tickers[i:i+batch_size]
+        print(f"  Batch {i//batch_size + 1}/{(len(tickers)-1)//batch_size + 1}: {len(batch)} tickers")
+        try:
+            data = yf.download(batch, period="25d", interval="1d", group_by='ticker',
+                             auto_adjust=True, prepost=False, threads=True, progress=False)
+            if data.empty:
+                continue
+            
+            for ticker in batch:
+                try:
+                    if len(batch) == 1:
+                        ticker_data = data
+                    else:
+                        if ticker not in data.columns.get_level_values(0):
+                            continue
+                        ticker_data = data[ticker]
+                    
+                    if ticker_data.empty or len(ticker_data) < 2:
+                        continue
+                    
+                    close = ticker_data['Close']
+                    volume = ticker_data['Volume']
+                    if close.isna().all() or volume.isna().all():
+                        continue
+                    
+                    price = float(close.iloc[-1])
+                    prev = float(close.iloc[-2])
+                    vol = float(volume.iloc[-1])
+                    avg_vol = float(volume.mean())
+                    high_20d = float(ticker_data['High'].max())
+                    low_20d = float(ticker_data['Low'].min())
+                    
+                    # Try to get info for market cap and sector
+                    market_cap = 0
+                    sector = "N/A"
+                    name = ticker
+                    try:
+                        t_info = yf.Ticker(ticker)
+                        info = t_info.info
+                        market_cap = info.get('marketCap', 0)
+                        sector = info.get('sector', 'N/A')
+                        name = info.get('longName', info.get('shortName', ticker))
+                    except Exception:
+                        pass
+                    
+                    if price < 10 or vol < 500_000 or market_cap < 2_000_000_000:
+                        continue
+                    
+                    d = {
+                        'ticker': ticker, 'name': name, 'price': price,
+                        'prev_close': prev, 'volume': vol, 'avg_volume': avg_vol,
+                        'market_cap': market_cap, 'sector': sector,
+                        'high_20d': high_20d, 'low_20d': low_20d,
+                        'hist': ticker_data,
+                    }
+                    metrics = compute_score(d)
+                    stocks.append({**d, **metrics})
+                    
+                except Exception as e:
+                    continue
+        except Exception as e:
+            print(f"  Batch error: {e}")
             continue
         
-        metrics = compute_score(d)
-        stocks.append({**d, **metrics})
-        time.sleep(0.05)  # Rate limit
+        time.sleep(0.5)  # Rate limit between batches
+    
+    # Sequential fallback for any tickers that failed in batch
+    processed = {s['ticker'] for s in stocks}
+    for ticker in tickers:
+        if ticker in processed:
+            continue
+        try:
+            d = yf_ticker_info(ticker)
+            if d and d['price'] >= 10 and d['volume'] >= 500_000 and d['market_cap'] >= 2_000_000_000:
+                metrics = compute_score(d)
+                stocks.append({**d, **metrics})
+        except Exception:
+            continue
+        time.sleep(0.05)
     
     # Sort by score desc
     stocks.sort(key=lambda x: x['score'], reverse=True)

@@ -18,11 +18,11 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install yfinance pandas lxml
+        run: pip install yfinance pandas lxml html5lib requests
 
       - name: Generate screener
         run: python scripts/generate_screener.py
-        timeout-minutes: 10
+        timeout-minutes: 15
 
       - name: Commit and push
         run: |
