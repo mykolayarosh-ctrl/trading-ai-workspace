@@ -4,6 +4,9 @@
     <title>Advanced Evening Stock Screener — Gap Up Strategy</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -149,7 +152,7 @@
     <div class="header">
         <h1>📈 Advanced Evening Stock Screener</h1>
         <p>Gap Up Strategy — Extended Universe</p>
-        <button class="refresh-btn" onclick="window.location.reload(true)">🔄 Refresh Data</button>
+        <button class="refresh-btn" onclick="window.location.href=window.location.pathname+'?nocache='+Date.now()">🔄 Refresh Data</button>
     </div>
 
     <div class="strategy-note">
