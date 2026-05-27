@@ -1,0 +1,152 @@
+{
+  "analysis_type": "sector",
+  "baseline_win_rate": 52.15,
+  "sector_ranking": [
+    {
+      "sector": "Utilities",
+      "trades": 5280,
+      "tickers": 24,
+      "win_rate": 56.36363636363636,
+      "avg_return": 0.09534530838359814
+    },
+    {
+      "sector": "Energy",
+      "trades": 4168,
+      "tickers": 19,
+      "win_rate": 56.16602687140115,
+      "avg_return": 0.07780467975610285
+    },
+    {
+      "sector": "Industrials",
+      "trades": 12980,
+      "tickers": 59,
+      "win_rate": 53.68258859784284,
+      "avg_return": 0.06290831184588577
+    },
+    {
+      "sector": "Basic Materials",
+      "trades": 4620,
+      "tickers": 21,
+      "win_rate": 53.31168831168831,
+      "avg_return": 0.04399283018030993
+    },
+    {
+      "sector": "Real Estate",
+      "trades": 6380,
+      "tickers": 29,
+      "win_rate": 53.13479623824452,
+      "avg_return": 0.032110960836338936
+    },
+    {
+      "sector": "Financial Services",
+      "trades": 13639,
+      "tickers": 62,
+      "win_rate": 52.70914289903952,
+      "avg_return": 0.01687145903818476
+    },
+    {
+      "sector": "Technology",
+      "trades": 17820,
+      "tickers": 78,
+      "win_rate": 52.35129068462402,
+      "avg_return": 0.09726653489712062
+    },
+    {
+      "sector": "Consumer Cyclical",
+      "trades": 11188,
+      "tickers": 50,
+      "win_rate": 50.51841258491241,
+      "avg_return": 0.004829258446227427
+    },
+    {
+      "sector": "Consumer Defensive",
+      "trades": 7480,
+      "tickers": 34,
+      "win_rate": 50.37433155080214,
+      "avg_return": 0.011340165731669679
+    },
+    {
+      "sector": "Communication Services",
+      "trades": 5060,
+      "tickers": 21,
+      "win_rate": 49.90118577075099,
+      "avg_return": 0.032562169813095024
+    },
+    {
+      "sector": "Healthcare",
+      "trades": 12946,
+      "tickers": 58,
+      "win_rate": 49.16576548740924,
+      "avg_return": -0.014299851623119447
+    }
+  ],
+  "spy_strong_up_sector": [
+    {
+      "sector": "Technology",
+      "trades": 2673,
+      "win_rate": 82.08005985783764,
+      "avg_return": 1.071120597834427
+    },
+    {
+      "sector": "Industrials",
+      "trades": 1947,
+      "win_rate": 78.47971237801747,
+      "avg_return": 0.7157297513089343
+    },
+    {
+      "sector": "Consumer Cyclical",
+      "trades": 1678,
+      "win_rate": 74.79141835518475,
+      "avg_return": 0.7074571010939834
+    },
+    {
+      "sector": "Financial Services",
+      "trades": 2045,
+      "win_rate": 72.42053789731051,
+      "avg_return": 0.5492766650619064
+    },
+    {
+      "sector": "Basic Materials",
+      "trades": 693,
+      "win_rate": 70.27417027417027,
+      "avg_return": 0.4293771977345232
+    },
+    {
+      "sector": "Communication Services",
+      "trades": 759,
+      "win_rate": 68.51119894598156,
+      "avg_return": 0.4229054648256328
+    },
+    {
+      "sector": "Real Estate",
+      "trades": 957,
+      "win_rate": 68.02507836990596,
+      "avg_return": 0.34274730428628863
+    },
+    {
+      "sector": "Utilities",
+      "trades": 792,
+      "win_rate": 65.02525252525253,
+      "avg_return": 0.3039902125957967
+    },
+    {
+      "sector": "Healthcare",
+      "trades": 1941,
+      "win_rate": 65.01803194229778,
+      "avg_return": 0.3125554796189662
+    },
+    {
+      "sector": "Energy",
+      "trades": 626,
+      "win_rate": 53.03514376996805,
+      "avg_return": -0.30698138164682587
+    },
+    {
+      "sector": "Consumer Defensive",
+      "trades": 1122,
+      "win_rate": 48.484848484848484,
+      "avg_return": 0.08545637274960724
+    }
+  ],
+  "date": "2026-05-27T16:16:42.926703"
+}

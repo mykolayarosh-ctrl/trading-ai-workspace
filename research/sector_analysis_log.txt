@@ -1,0 +1,68 @@
+Loading data...
+Loaded: 101561 rows, 455 tickers
+Fetching sector info for 455 tickers...
+  Batch 1/10: 50 tickers
+  Batch 2/10: 50 tickers
+  Batch 3/10: 50 tickers
+  Batch 4/10: 50 tickers
+  Batch 5/10: 50 tickers
+  Batch 6/10: 50 tickers
+  Batch 7/10: 50 tickers
+  Batch 8/10: 50 tickers
+  Batch 9/10: 50 tickers
+  Batch 10/10: 5 tickers
+
+Saved: research/daily_with_sectors.csv
+
+======================================================================
+SECTOR ANALYSIS
+======================================================================
+Baseline: 52.15% WR
+
+Sector                          Tickers   Trades    WinRate     AvgRet
+----------------------------------------------------------------------
+Utilities                            24    5,280     56.36%    0.0953% 🔥
+Energy                               19    4,168     56.17%    0.0778% 🔥
+Industrials                          59   12,980     53.68%    0.0629% ⭐
+Basic Materials                      21    4,620     53.31%    0.0440% ⭐
+Real Estate                          29    6,380     53.13%    0.0321% ⭐
+Financial Services                   62   13,639     52.71%    0.0169% 
+Technology                           78   17,820     52.35%    0.0973% 
+Consumer Cyclical                    50   11,188     50.52%    0.0048% 
+Consumer Defensive                   34    7,480     50.37%    0.0113% 
+Communication Services               21    5,060     49.90%    0.0326% 
+Healthcare                           58   12,946     49.17%   -0.0143% 
+
+======================================================================
+SECTOR + SPY STRONG UP COMBOS
+======================================================================
+Sector                           Trades    WinRate     AvgRet
+------------------------------------------------------------
+Technology                        2,673     82.08%    1.0711% 🔥
+Industrials                       1,947     78.48%    0.7157% 🔥
+Consumer Cyclical                 1,678     74.79%    0.7075% 🔥
+Financial Services                2,045     72.42%    0.5493% 🔥
+Basic Materials                     693     70.27%    0.4294% 🔥
+Communication Services              759     68.51%    0.4229% ⭐
+Real Estate                         957     68.03%    0.3427% ⭐
+Utilities                           792     65.03%    0.3040% ⭐
+Healthcare                        1,941     65.02%    0.3126% ⭐
+Energy                              626     53.04%   -0.3070% 
+Consumer Defensive                1,122     48.48%    0.0855% 
+
+======================================================================
+INDUSTRY BREAKDOWN — TOP PERFORMING SECTOR
+======================================================================
+Top sector: Utilities
+Industry                                   Trades    WinRate     AvgRet
+----------------------------------------------------------------------
+Utilities - Independent Power Producers       440     59.09%    0.1797%
+Utilities - Regulated Gas                     440     56.36%    0.1142%
+Utilities - Regulated Electric              4,180     56.17%    0.0843%
+Utilities - Diversified                       220     54.55%    0.0994%
+
+Saved: research/sector_analysis_results.json
+
+======================================================================
+SECTOR ANALYSIS COMPLETE
+======================================================================
