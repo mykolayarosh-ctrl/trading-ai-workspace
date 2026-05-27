@@ -1,0 +1,85 @@
+Loading data...
+Loaded: 101561 rows, 455 tickers
+
+================================================================================
+1. SPY DAILY CHANGE VERIFICATION (no look-ahead)
+================================================================================
+  SPY Daily < -3%                | N=   462 | WR= 84.42% | Avg=+0.4039%
+  SPY Daily < -2%                | N=   924 | WR= 77.16% | Avg=+0.5775%
+  SPY Daily < -1%                | N= 5,544 | WR= 63.46% | Avg=+0.3106%
+  SPY Daily < -0.5%              | N=17,092 | WR= 61.12% | Avg=+0.1791%
+  SPY Daily 0% to +0.5%          | N=31,394 | WR= 51.35% | Avg=+0.0551%
+  SPY Daily +0.5% to +1%         | N=17,994 | WR= 58.55% | Avg=+0.1473%
+  SPY Daily > +1%                | N= 3,694 | WR= 31.56% | Avg=-0.3403%
+
+================================================================================
+2. STOCK CONDITIONS ALONE (no SPY)
+================================================================================
+  Stock Change < -5%             | N=   963 | WR= 55.76% | Avg=+0.2562%
+  Stock Change < -4%             | N= 1,904 | WR= 57.88% | Avg=+0.2389%
+  Stock Change < -3%             | N= 4,079 | WR= 57.78% | Avg=+0.2016%
+  Stock Change < -2%             | N= 9,650 | WR= 57.24% | Avg=+0.1504%
+  Stock Change < -1%             | N=23,590 | WR= 56.36% | Avg=+0.1110%
+  Stock Change > +2%             | N=10,042 | WR= 51.23% | Avg=+0.0555%
+  Stock Change > +3%             | N= 4,306 | WR= 51.70% | Avg=+0.0689%
+  Stock Change > +4%             | N= 1,935 | WR= 50.18% | Avg=+0.0760%
+  |Stock Change| > 3%            | N= 8,385 | WR= 54.66% | Avg=+0.1334%
+  RSI < 20                       | N= 3,082 | WR= 55.00% | Avg=+0.1466%
+  RSI < 30                       | N=11,224 | WR= 55.17% | Avg=+0.0878%
+  RSI > 70                       | N=15,140 | WR= 51.45% | Avg=+0.0344%
+  BB Position < 10%              | N=11,039 | WR= 56.60% | Avg=+0.1032%
+  BB Position > 90%              | N=13,889 | WR= 50.68% | Avg=+0.0305%
+  BB Width > 5%                  | N=93,919 | WR= 52.21% | Avg=+0.0433%
+  Tuesday                        | N=20,775 | WR= 55.19% | Avg=+0.1615%
+  Friday                         | N=20,772 | WR= 49.48% | Avg=+0.0292%
+  Wednesday                      | N=20,775 | WR= 48.51% | Avg=-0.0313%
+
+================================================================================
+3. 2-FILTER COMBOS (stock condition + SPY Daily — TRADEABLE)
+================================================================================
+
+  Combo                                              N   Wins   Loss     WR%      Avg   AvgWin  AvgLoss
+  -----------------------------------------------------------------------------------------------
+  Tuesday + Change<-2% + SPY<-0.5%                 653    467    186  71.52% +0.3811% +0.8405% -0.7723% 🔥
+  Change<-2% + SPY<-1%                            1430   1009    421  70.56% +0.6217% +1.3296% -1.0748% 🔥
+  RSI<30 + SPY<-0.5%                              2788   1832    956  65.71% +0.3562% +0.9360% -0.7550% 🔥
+  Change<-3% + Tuesday + SPY<-0.5%                 284    185     99  65.14% +0.2656% +0.9677% -1.0464% 🔥
+  Change<-2% + SPY<-0.5%                          3368   2154   1214  63.95% +0.3329% +1.0533% -0.9453% 🔥
+  Tuesday + Change>+2%                            2181   1383    798  63.41% +0.3492% +0.9692% -0.7253% 🔥
+  Friday + Change<-2%                             1993   1254    739  62.92% +0.3723% +1.0705% -0.8126% 🔥
+  Tuesday + Change<-2% + SPY<0%                   1258    782    476  62.16% +0.2096% +0.8084% -0.7742% 🔥
+  Tuesday + Change<-2%                            1836   1110    726  60.46% +0.2463% +0.9083% -0.7658% 🔥
+  Change<-2% + SPY>0%                             3114   1785   1329  57.32% +0.1674% +0.8933% -0.8075% ⭐
+  Change<-2% + SPY<0%                             6496   3710   2786  57.11% +0.1413% +0.9509% -0.9368% ⭐
+  Change<-2% + RSI<30 + SPY<0%                    1475    826    649  56.00% +0.1767% +1.0001% -0.8711% ⭐
+  RSI<30 + Tuesday                                2199   1186   1013  53.93% +0.1364% +0.7230% -0.5504% 
+  Change>+2% + SPY<-0.5%                          1004    534    470  53.19% +0.0106% +0.8685% -0.9641% 
+  Change>+2% + SPY>+0.5%                          4127   2190   1937  53.07% +0.0821% +0.7979% -0.7273% 
+
+================================================================================
+4. ENTRY/EXIT TIMING
+================================================================================
+
+ENTRY:  Buy at 15:30–16:00 ET (last 30 min of regular session)
+        → Use limit order near current price
+        → Must check: ChangePct < -2% (known at close), SPY_DailyChange (known at close)
+
+EXIT:   Sell at 09:30 ET next day (market open)
+        → Market order at open
+        → Target: overnight gap profit
+
+WHY NOT 4 AM?
+        → Free data only gives 09:30 Open
+        → For 4 AM need Polygon.io ($49/mo) or broker API
+        → Research shows Close→4AM = 56.15% WR vs Close→Open = 52.15% WR
+        → Edge is small, not worth paid data for now
+
+EXAMPLE TODAY:
+        If AAPL is -3.5% at 15:30 and SPY is -0.8%:
+        → Buy AAPL at ~15:45
+        → Sell tomorrow at 09:30
+        → Expected: ~57% chance of overnight gap up
+
+
+Saved: research/final_tradeable_strategies.json
+================================================================================
