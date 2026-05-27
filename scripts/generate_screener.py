@@ -4,6 +4,42 @@ import json, sys, os, datetime, time
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError
 
+def fetch_spy_data():
+    """Fetch SPY daily change for market context."""
+    try:
+        import yfinance as yf
+        spy = yf.Ticker('SPY')
+        hist = spy.history(period='5d', interval='1d')
+        if len(hist) < 2:
+            return None
+        last_close = hist['Close'].iloc[-1]
+        prev_close = hist['Close'].iloc[-2]
+        change_pct = (last_close / prev_close - 1) * 100
+        
+        if change_pct > 0.5:
+            signal = 'STRONG_UP'
+            signal_text = 'SPY Strong Up (+{:.2f}%) — 70.7% WR'.format(change_pct)
+        elif change_pct > 0:
+            signal = 'UP'
+            signal_text = 'SPY Up (+{:.2f}%) — 62.9% WR'.format(change_pct)
+        elif change_pct < -0.5:
+            signal = 'STRONG_DOWN'
+            signal_text = 'SPY Strong Down ({:.2f}%) — 22.9% WR AVOID'.format(change_pct)
+        else:
+            signal = 'DOWN'
+            signal_text = 'SPY Down ({:.2f}%) — 35.4% WR AVOID'.format(change_pct)
+        
+        return {
+            'change_pct': change_pct,
+            'signal': signal,
+            'signal_text': signal_text,
+            'last_close': last_close
+        }
+    except Exception as e:
+        print(f'  SPY fetch error: {e}')
+        return None
+
+
 def fetch_sp500_tickers():
     """Fetch S&P 500 tickers from Wikipedia CSV mirror."""
     urls = [
@@ -144,29 +180,32 @@ def compute_score(d):
     gap_prob = min(100, (abs(change_pct) * 3) + (range_20d * 0.4) + (min(vol_ratio, 3) * 10))
     
     # Tier classification based on backtest (Close → Open win rates)
-    # Tier 3: 67.9% WR — |Change|>3% + Change<-3% + (Tuesday)
-    # Tier 2: 65% WR — Change<-2% + (Tuesday)
-    # Tier 1: 57-60% WR — 20D Range <10% OR VolRatio>3x OR Change<-2%
+    # With SPY Signal context
     tier = ""
     tier_class = ""
     tier_desc = ""
-    
-    is_tuesday = False  # Will be set in main if today is Tuesday
+    spy_context = ""
     
     # Check conditions
     strong_down = abs(change_pct) > 3 and change_pct < 0
     moderate_down = change_pct < -2
     near_low = range_20d < 10
     high_vol = vol_ratio > 3
+    strong_up = change_pct > 2
     
-    if strong_down:  # |Change| > 3% and down
+    # Base tier assignment
+    if strong_down:
         tier = "T3"
         tier_class = "tier-3"
         tier_desc = "Strong down >3% — 67.9% WR"
-    elif moderate_down:  # Change < -2%
+    elif moderate_down:
         tier = "T2" 
         tier_class = "tier-2"
         tier_desc = "Down >2% — 65% WR"
+    elif strong_up:
+        tier = "T2+"
+        tier_class = "tier-2"
+        tier_desc = "Up >2% momentum — 63.4% WR"
     elif near_low or high_vol:
         tier = "T1"
         tier_class = "tier-1"
@@ -203,7 +242,7 @@ def format_number(n):
         return f"${n/1e6:.1f}M"
     return f"${n:.1f}"
 
-def generate_html(stocks):
+def generate_html(stocks, spy_data=None):
     now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
     header = open("stock_screener_header.html").read()
@@ -284,6 +323,22 @@ def generate_html(stocks):
     header = header.replace(old_headers, new_headers)
     header = header.replace("{last_update}", now).replace("{count}", str(len(stocks)))
     
+    # Replace SPY placeholders
+    if spy_data:
+        header = header.replace("{spy_signal}", spy_data.get('signal_text', 'N/A'))
+        header = header.replace("{spy_change}", f"{spy_data.get('change_pct', 0):.2f}%")
+        if spy_data.get('signal') in ['STRONG_UP', 'UP']:
+            rec = '✅ GO — Market supports overnight gaps'
+        elif spy_data.get('signal') == 'STRONG_DOWN':
+            rec = '❌ STOP — High probability of overnight drop'
+        else:
+            rec = '⚠️ CAUTION — Market weak, reduce size'
+        header = header.replace("{spy_rec}", rec)
+    else:
+        header = header.replace("{spy_signal}", "SPY data unavailable")
+        header = header.replace("{spy_change}", "N/A")
+        header = header.replace("{spy_rec}", "Check SPY manually")
+    
     # Add sort styles
     sort_styles = '''        th {
             cursor: pointer;
@@ -345,6 +400,14 @@ def main():
     
     if not tickers:
         tickers = _EXTENDED_FALLBACK
+    
+    # Fetch SPY data for market context
+    print("Fetching SPY market data...")
+    spy_data = fetch_spy_data()
+    if spy_data:
+        print(f"  SPY: {spy_data['signal_text']}")
+    else:
+        print("  Warning: Could not fetch SPY data")
     
     print(f"Processing {len(tickers)} tickers...")
     stocks = []
@@ -438,7 +501,7 @@ def main():
     
     print(f"Passed filters: {len(stocks)} stocks")
     
-    html = generate_html(stocks)
+    html = generate_html(stocks, spy_data)
     with open("stock_screener.html", "w") as f:
         f.write(html)
     print("Written stock_screener.html")

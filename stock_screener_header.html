@@ -203,19 +203,20 @@
     <table>
         <thead>
             <tr>
-                <th>#</th>
-                <th>Ticker</th>
-                <th>Price</th>
-                <th>Change</th>
-                <th>Score</th>
-                <th>Gap Prob</th>
-                <th>AH Signal</th>
-                <th>Volume</th>
-                <th>Vol Ratio</th>
-                <th>20D Range</th>
-                <th>5D Chg</th>
-                <th>Mkt Cap</th>
-                <th>Sector</th>
+                <th data-sort="num" onclick="sortTable(0)">#</th>
+                <th data-sort="text" onclick="sortTable(1)">Ticker</th>
+                <th data-sort="money" onclick="sortTable(2)">Price</th>
+                <th data-sort="pct" onclick="sortTable(3)">Change</th>
+                <th data-sort="num" onclick="sortTable(4)">Score</th>
+                <th data-sort="text" onclick="sortTable(5)">Tier</th>
+                <th data-sort="pct" onclick="sortTable(6)">Gap Prob</th>
+                <th data-sort="text" onclick="sortTable(7)">AH Signal</th>
+                <th data-sort="vol" onclick="sortTable(8)">Volume</th>
+                <th data-sort="ratio" onclick="sortTable(9)">Vol Ratio</th>
+                <th data-sort="pct" onclick="sortTable(10)">20D Range</th>
+                <th data-sort="pct" onclick="sortTable(11)">5D Chg</th>
+                <th data-sort="cap" onclick="sortTable(12)">Mkt Cap</th>
+                <th data-sort="text" onclick="sortTable(13)">Sector</th>
             </tr>
         </thead>
         <tbody>
