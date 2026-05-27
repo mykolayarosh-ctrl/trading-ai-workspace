@@ -1,0 +1,133 @@
+Loading data...
+Loaded: 101561 rows, 455 tickers
+Columns: ['Date', 'DayOfWeek', 'Close', 'NextOpen', 'OvernightReturn', 'NextDayReturn', 'Next15MinReturn', 'Volume', 'RSI', 'ATR_Pct', 'BB_Position', 'BB_Width', 'MACD', 'MACD_Hist', 'ChangePct', 'Ticker', 'SPY_Overnight', 'QQQ_Overnight', 'DIA_Overnight', 'Outperform', 'Month', 'Quarter', 'YearMonth']
+
+======================================================================
+1. SECTOR ANALYSIS
+======================================================================
+Sector data not available in daily_with_index_factors.csv
+Skipping sector analysis (requires sector info from yfinance)
+
+======================================================================
+2. MONTHLY SEASONALITY
+======================================================================
+Month      Trades    WinRate     AvgRet
+----------------------------------------
+Jan         9,240     48.61%   -0.0107% 
+Feb         8,778     50.07%   -0.0433% 
+Mar        10,164     46.00%   -0.0704% 
+Apr         9,668     48.84%    0.1261% 
+May         7,347     52.16%    0.0748% 
+Jul         7,392     53.64%    0.0237% ⭐
+Aug         9,702     57.43%    0.0577% 🔥
+Sep         9,702     54.22%    0.0623% ⭐
+Oct        10,626     57.53%    0.1270% 🔥
+Nov         8,778     49.95%   -0.0114% 
+Dec        10,164     54.65%    0.0956% ⭐
+
+======================================================================
+3. QUARTERLY SEASONALITY
+======================================================================
+Quarter      Trades    WinRate     AvgRet
+----------------------------------------
+Q1           28,182     48.12%   -0.0424% 
+Q2           17,015     50.27%    0.1039% 
+Q3           26,796     55.22%    0.0499% 🔥
+Q4           29,568     54.29%    0.0751% ⭐
+
+======================================================================
+4. VOLATILITY REGIME (using ATR%)
+======================================================================
+Low        N=  25,822 WR=  52.01% Avg=  0.0121%
+Medium     N=  63,305 WR=  52.31% Avg=  0.0457%
+High       N=  12,434 WR=  51.64% Avg=  0.0746%
+
+======================================================================
+5. CONSECUTIVE DAYS ANALYSIS
+======================================================================
+Does yesterday's overnight predict today's?
+Prev was green                 N=  52,700 WR=  53.57% Avg=  0.0632%
+Prev was red                   N=  47,577 WR=  51.09% Avg=  0.0212%
+Prev strong green (>1%)        N=   9,354 WR=  51.83% Avg=  0.0868%
+Prev strong red (<-1%)         N=   8,502 WR=  50.99% Avg= -0.0144%
+
+======================================================================
+6. BEST 3-FILTER COMBINATIONS
+======================================================================
+Combination                                                       N    WinRate     AvgRet
+------------------------------------------------------------------------------------------
+Change<-2% + Friday + SPY_StrongUp                              836     89.35%    1.0993% 🔥
+Change<-2% + MACD<0 + SPY_StrongUp                            1,031     85.65%    1.0173% 🔥
+Change<-2% + BB>90 + SPY_StrongUp                                45     84.44%    1.0593% 🔥
+Change<-2% + BB<10 + SPY_StrongUp                               746     83.91%    0.9880% 🔥
+Change<-2% + RSI<30 + SPY_StrongUp                              493     83.57%    1.0262% 🔥
+RSI<30 + Friday + SPY_StrongUp                                  993     83.38%    0.9124% 🔥
+Change<-2% + SPY_Up + SPY_StrongUp                            1,823     82.83%    0.9693% 🔥
+Change<-2% + Friday + SPY_Up                                  1,238     82.47%    0.8763% 🔥
+BB<10 + Friday + SPY_StrongUp                                 1,047     79.94%    0.7623% 🔥
+Change>2% + Tuesday + SPY_StrongUp                              599     79.30%    0.8439% 🔥
+RSI<30 + MACD<0 + SPY_StrongUp                                2,212     79.25%    0.7573% 🔥
+Change<-2% + MACD>0 + SPY_StrongUp                              792     79.17%    0.9069% 🔥
+RSI<30 + SPY_Up + SPY_StrongUp                                2,331     79.06%    0.7388% 🔥
+Change<-2% + Thursday + SPY_StrongUp                            198     78.28%    0.9644% 🔥
+RSI<30 + BB<10 + SPY_StrongUp                                 1,155     77.84%    0.7259% 🔥
+BB<10 + MACD>0 + SPY_StrongUp                                   359     77.72%    0.7979% 🔥
+RSI<30 + Friday + SPY_Up                                      1,555     76.91%    0.6756% 🔥
+Change<-2% + Tuesday + SPY_StrongUp                             315     76.83%    0.6969% 🔥
+Friday + SPY_StrongUp + VolRatio>2                              345     76.23%    0.8296% 🔥
+RSI<30 + MACD>0 + SPY_StrongUp                                  119     75.63%    0.3954% 🔥
+
+======================================================================
+7. SPY + SECTOR COMBOS
+======================================================================
+Sector data not available — skipping
+
+======================================================================
+8. OVERNIGHT MAGNITUDE ANALYSIS
+======================================================================
+What overnight return can we expect?
+Overnight > +0.5%: 22.16% of trades (22,508 trades)
+Overnight > +1.0%: 9.28% of trades (9,426 trades)
+Overnight > +1.5%: 4.72% of trades (4,791 trades)
+Overnight > +2.0%: 2.83% of trades (2,876 trades)
+
+Negative overnights:
+Overnight < -0.5%: 19.33% of trades (19,627 trades)
+Overnight < -1.0%: 8.41% of trades (8,541 trades)
+Overnight < -1.5%: 4.34% of trades (4,407 trades)
+Overnight < -2.0%: 2.51% of trades (2,548 trades)
+
+======================================================================
+9. TIER VALIDATION ON FULL DATASET
+======================================================================
+T3 (|Change|>3% + Down)             N=   4,079 WR=  57.78% Avg=  0.2016%
+T2 (Change<-2%)                     N=   9,650 WR=  57.24% Avg=  0.1504%
+T2+ (Change>2%)                     N=  10,042 WR=  51.23% Avg=  0.0555%
+T1 (ATR<2%)                         N=  25,769 WR=  51.99% Avg=  0.0121%
+T1 (VolRatio>3)                     N=     918 WR=  52.83% Avg=  0.2239%
+
+======================================================================
+10. RECOMMENDED STRATEGIES SUMMARY
+======================================================================
+
+Conservative (SPY Up + Any)
+  Market-supported base case
+  Trades: 61,859 | Win Rate: 62.88% | Avg: 0.2575%
+
+Aggressive (SPY Strong Up + T2)
+  Best confirmed setup
+  Trades: 1,823 | Win Rate: 82.83% | Avg: 0.9693%
+
+Momentum (SPY Up + Change>2% + Tuesday)
+  Momentum continuation
+  Trades: 1,916 | Win Rate: 65.97% | Avg: 0.4115%
+
+Mean Reversion (SPY Up + BB>90 + Change<-2%)
+  Oversold bounce with market support
+  Trades: 165 | Win Rate: 72.12% | Avg: 0.6989%
+
+
+Saved: research/deep_analysis_results.json
+======================================================================
+DEEP ANALYSIS COMPLETE
+======================================================================

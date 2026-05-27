@@ -1,0 +1,316 @@
+{
+  "baseline": {
+    "win_rate": 52.15,
+    "avg_return": 0.0407
+  },
+  "analyses": {
+    "monthly": [
+      {
+        "month": 1,
+        "name": "Jan",
+        "trades": 9240,
+        "win_rate": 48.61471861471862,
+        "avg_return": -0.010720315020658556
+      },
+      {
+        "month": 2,
+        "name": "Feb",
+        "trades": 8778,
+        "win_rate": 50.06835269993165,
+        "avg_return": -0.0432775260037573
+      },
+      {
+        "month": 3,
+        "name": "Mar",
+        "trades": 10164,
+        "win_rate": 45.995670995671,
+        "avg_return": -0.07035702373446269
+      },
+      {
+        "month": 4,
+        "name": "Apr",
+        "trades": 9668,
+        "win_rate": 48.84153909805544,
+        "avg_return": 0.12609502933585234
+      },
+      {
+        "month": 5,
+        "name": "May",
+        "trades": 7347,
+        "win_rate": 52.157343133251665,
+        "avg_return": 0.07477198572912074
+      },
+      {
+        "month": 7,
+        "name": "Jul",
+        "trades": 7392,
+        "win_rate": 53.63906926406926,
+        "avg_return": 0.023673237585675924
+      },
+      {
+        "month": 8,
+        "name": "Aug",
+        "trades": 9702,
+        "win_rate": 57.43145743145743,
+        "avg_return": 0.057655597038253334
+      },
+      {
+        "month": 9,
+        "name": "Sep",
+        "trades": 9702,
+        "win_rate": 54.215625644197075,
+        "avg_return": 0.06225831408695799
+      },
+      {
+        "month": 10,
+        "name": "Oct",
+        "trades": 10626,
+        "win_rate": 57.528703180877095,
+        "avg_return": 0.12704256310898163
+      },
+      {
+        "month": 11,
+        "name": "Nov",
+        "trades": 8778,
+        "win_rate": 49.9544315333789,
+        "avg_return": -0.01140492218623504
+      },
+      {
+        "month": 12,
+        "name": "Dec",
+        "trades": 10164,
+        "win_rate": 54.65367965367965,
+        "avg_return": 0.0955971158716181
+      }
+    ],
+    "quarterly": [
+      {
+        "quarter": 1,
+        "trades": 28182,
+        "win_rate": 48.12291533603009,
+        "avg_return": -0.04236940683020883
+      },
+      {
+        "quarter": 2,
+        "trades": 17015,
+        "win_rate": 50.27328827505142,
+        "avg_return": 0.10393397136472939
+      },
+      {
+        "quarter": 3,
+        "trades": 26796,
+        "win_rate": 55.22092849679056,
+        "avg_return": 0.04994765405172849
+      },
+      {
+        "quarter": 4,
+        "trades": 29568,
+        "win_rate": 54.29180194805194,
+        "avg_return": 0.07513159342412047
+      }
+    ],
+    "volatility_regime": [
+      {
+        "regime": "Low",
+        "trades": 25822,
+        "win_rate": 52.00991402679885,
+        "avg_return": 0.012059231241775973
+      },
+      {
+        "regime": "Medium",
+        "trades": 63305,
+        "win_rate": 52.31024405655161,
+        "avg_return": 0.04572673028440195
+      },
+      {
+        "regime": "High",
+        "trades": 12434,
+        "win_rate": 51.640662699050985,
+        "avg_return": 0.0746458148654682
+      }
+    ],
+    "top_3filter_combos": [
+      {
+        "name": "Change<-2% + Friday + SPY_StrongUp",
+        "trades": 836,
+        "win_rate": 89.35406698564593,
+        "avg_return": 1.0992594621612135
+      },
+      {
+        "name": "Change<-2% + MACD<0 + SPY_StrongUp",
+        "trades": 1031,
+        "win_rate": 85.64500484966052,
+        "avg_return": 1.0172672175072734
+      },
+      {
+        "name": "Change<-2% + BB>90 + SPY_StrongUp",
+        "trades": 45,
+        "win_rate": 84.44444444444444,
+        "avg_return": 1.0592868553891819
+      },
+      {
+        "name": "Change<-2% + BB<10 + SPY_StrongUp",
+        "trades": 746,
+        "win_rate": 83.91420911528151,
+        "avg_return": 0.9879730530509456
+      },
+      {
+        "name": "Change<-2% + RSI<30 + SPY_StrongUp",
+        "trades": 493,
+        "win_rate": 83.56997971602435,
+        "avg_return": 1.0261777225815194
+      },
+      {
+        "name": "RSI<30 + Friday + SPY_StrongUp",
+        "trades": 993,
+        "win_rate": 83.38368580060424,
+        "avg_return": 0.9123550684789707
+      },
+      {
+        "name": "Change<-2% + SPY_Up + SPY_StrongUp",
+        "trades": 1823,
+        "win_rate": 82.83049917718047,
+        "avg_return": 0.9693195256635856
+      },
+      {
+        "name": "Change<-2% + Friday + SPY_Up",
+        "trades": 1238,
+        "win_rate": 82.47172859450727,
+        "avg_return": 0.876297621470812
+      },
+      {
+        "name": "BB<10 + Friday + SPY_StrongUp",
+        "trades": 1047,
+        "win_rate": 79.94269340974212,
+        "avg_return": 0.7622942680240257
+      },
+      {
+        "name": "Change>2% + Tuesday + SPY_StrongUp",
+        "trades": 599,
+        "win_rate": 79.29883138564274,
+        "avg_return": 0.8439174672478582
+      },
+      {
+        "name": "RSI<30 + MACD<0 + SPY_StrongUp",
+        "trades": 2212,
+        "win_rate": 79.249547920434,
+        "avg_return": 0.7572723462361519
+      },
+      {
+        "name": "Change<-2% + MACD>0 + SPY_StrongUp",
+        "trades": 792,
+        "win_rate": 79.16666666666666,
+        "avg_return": 0.9069027702458557
+      },
+      {
+        "name": "RSI<30 + SPY_Up + SPY_StrongUp",
+        "trades": 2331,
+        "win_rate": 79.06477906477906,
+        "avg_return": 0.7388000734536497
+      },
+      {
+        "name": "Change<-2% + Thursday + SPY_StrongUp",
+        "trades": 198,
+        "win_rate": 78.28282828282829,
+        "avg_return": 0.9643518969091734
+      },
+      {
+        "name": "RSI<30 + BB<10 + SPY_StrongUp",
+        "trades": 1155,
+        "win_rate": 77.83549783549783,
+        "avg_return": 0.7259380415881274
+      },
+      {
+        "name": "BB<10 + MACD>0 + SPY_StrongUp",
+        "trades": 359,
+        "win_rate": 77.71587743732591,
+        "avg_return": 0.7978716165800533
+      },
+      {
+        "name": "RSI<30 + Friday + SPY_Up",
+        "trades": 1555,
+        "win_rate": 76.91318327974277,
+        "avg_return": 0.6755572449405663
+      },
+      {
+        "name": "Change<-2% + Tuesday + SPY_StrongUp",
+        "trades": 315,
+        "win_rate": 76.82539682539684,
+        "avg_return": 0.6969280386921315
+      },
+      {
+        "name": "Friday + SPY_StrongUp + VolRatio>2",
+        "trades": 345,
+        "win_rate": 76.23188405797102,
+        "avg_return": 0.8295711380709957
+      },
+      {
+        "name": "RSI<30 + MACD>0 + SPY_StrongUp",
+        "trades": 119,
+        "win_rate": 75.63025210084034,
+        "avg_return": 0.3954331205553714
+      },
+      {
+        "name": "Change<-2% + RSI>70 + SPY_StrongUp",
+        "trades": 98,
+        "win_rate": 75.51020408163265,
+        "avg_return": 0.62283303384886
+      },
+      {
+        "name": "BB<10 + SPY_Up + SPY_StrongUp",
+        "trades": 2237,
+        "win_rate": 75.10058113544926,
+        "avg_return": 0.6692411596326321
+      },
+      {
+        "name": "BB>90 + Thursday + SPY_StrongUp",
+        "trades": 318,
+        "win_rate": 74.84276729559748,
+        "avg_return": 0.5786018777325804
+      },
+      {
+        "name": "BB<10 + Friday + SPY_Up",
+        "trades": 1614,
+        "win_rate": 74.72118959107806,
+        "avg_return": 0.5733417001743792
+      },
+      {
+        "name": "BB<10 + MACD<0 + SPY_StrongUp",
+        "trades": 1878,
+        "win_rate": 74.60063897763578,
+        "avg_return": 0.6446520573727149
+      },
+      {
+        "name": "Change>2% + BB<10 + Tuesday",
+        "trades": 51,
+        "win_rate": 74.50980392156863,
+        "avg_return": 0.6414297610050311
+      },
+      {
+        "name": "RSI<30 + SPY_StrongUp + VolRatio>2",
+        "trades": 242,
+        "win_rate": 73.55371900826447,
+        "avg_return": 0.8785007329864932
+      },
+      {
+        "name": "Change<-2% + RSI>70 + SPY_Up",
+        "trades": 341,
+        "win_rate": 73.31378299120234,
+        "avg_return": 0.5402439852872926
+      },
+      {
+        "name": "MACD<0 + Tuesday + SPY_StrongUp",
+        "trades": 1984,
+        "win_rate": 73.13508064516128,
+        "avg_return": 0.8808120698193577
+      },
+      {
+        "name": "Change<-2% + BB<10 + SPY_Up",
+        "trades": 2077,
+        "win_rate": 73.13432835820896,
+        "avg_return": 0.5444322616604957
+      }
+    ]
+  },
+  "date": "2026-05-27T16:08:49.538985"
+}
