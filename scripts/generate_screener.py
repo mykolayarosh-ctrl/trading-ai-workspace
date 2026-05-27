@@ -176,7 +176,7 @@ def yf_ticker_info(ticker):
     except Exception as e:
         return None
 
-def compute_score(d):
+def compute_score(d, spy_data=None):
     price = d['price']
     prev = d['prev_close']
     change_pct = ((price - prev) / prev) * 100 if prev else 0
@@ -200,44 +200,63 @@ def compute_score(d):
     # Gap probability estimate
     gap_prob = min(100, (abs(change_pct) * 3) + (range_20d * 0.4) + (min(vol_ratio, 3) * 10))
     
-    # Tier classification based on backtest (Close → Open win rates)
-    # With SPY Signal context
+    # Tier classification based on VERIFIED tradeable strategies
+    # All use data known at 16:00 close (no look-ahead bias)
     tier = ""
     tier_class = ""
     tier_desc = ""
-    spy_context = ""
     
-    # Check conditions
-    strong_down = abs(change_pct) > 3 and change_pct < 0
-    moderate_down = change_pct < -2
-    near_low = range_20d < 10
-    high_vol = vol_ratio > 3
-    strong_up = change_pct > 2
+    # Best tradeable combos from research:
+    # Tuesday + Change<-2% + SPY<-0.5% = 71.52% WR (653 trades)
+    # Change<-2% + SPY<-1% = 70.56% WR (1,430 trades)
+    # RSI<30 + SPY<-0.5% = 65.71% WR (2,788 trades)
+    # Change<-2% + SPY<-0.5% = 63.95% WR (3,368 trades)
     
-    # Base tier assignment
-    if strong_down:
-        tier = "T3"
-        tier_class = "tier-3"
-        tier_desc = "Strong down >3% — 67.9% WR"
-    elif moderate_down:
-        tier = "T2" 
-        tier_class = "tier-2"
-        tier_desc = "Down >2% — 65% WR"
-    elif strong_up:
-        tier = "T2+"
-        tier_class = "tier-2"
-        tier_desc = "Up >2% momentum — 63.4% WR"
-    elif near_low or high_vol:
+    # SPY data is passed from main() to avoid look-ahead bias
+    spy_daily = spy_data.get('change_pct', 0) if spy_data else 0
+    
+    if change_pct < -2:
+        if spy_daily < -1:
+            tier = "T3"
+            tier_class = "tier-3"
+            tier_desc = f"Change<-2% + SPY<-1% — 70.56% WR 🔥 (SPY: {spy_daily:.2f}%)"
+        elif spy_daily < -0.5:
+            tier = "T3"
+            tier_class = "tier-3"
+            tier_desc = f"Change<-2% + SPY<-0.5% — 63.95% WR 🔥 (SPY: {spy_daily:.2f}%)"
+        else:
+            tier = "T2"
+            tier_class = "tier-2"
+            tier_desc = f"Change<-2% — 57.24% WR ⭐"
+    elif change_pct > 2:
+        if spy_daily < -0.5:
+            tier = "T2"
+            tier_class = "tier-2"
+            tier_desc = f"Up>2% + SPY down — mean reversion"
+        else:
+            tier = "T2+"
+            tier_class = "tier-2"
+            tier_desc = f"Up>2% momentum — 51.23% WR"
+    else:
         tier = "T1"
         tier_class = "tier-1"
         if near_low:
-            tier_desc = "Near 20D low — 57.3% WR"
+            tier_desc = f"Near 20D low — 56.60% WR"
+        elif high_vol:
+            tier_desc = f"High volume — check mean reversion"
         else:
-            tier_desc = "High volume >3x — 56.4% WR"
-    else:
-        tier = ""
-        tier_class = ""
-        tier_desc = ""
+            tier_desc = f"Base setup"
+    
+    # SPY context note
+    if spy_daily > 1:
+        spy_context = "SPY rally >1% — 31% WR, AVOID overnight"
+        tier_desc += " ⚠️ SPY rally"
+    elif spy_daily > 0.5:
+        spy_context = "SPY rally >0.5% — profit taking risk"
+    elif spy_daily < -2:
+        spy_context = "SPY drop >2% — 77% WR mean reversion 🔥"
+    elif spy_daily < -1:
+        spy_context = "SPY drop >1% — 63% WR bounce likely 🔥"
     
     ah_signal = "🔥" if vol_ratio > 2 and abs(change_pct) > 2 else "—"
     
@@ -492,7 +511,7 @@ def main():
                         'high_20d': high_20d, 'low_20d': low_20d,
                         'hist': ticker_data,
                     }
-                    metrics = compute_score(d)
+                    metrics = compute_score(d, spy_data)
                     stocks.append({**d, **metrics})
                     
                 except Exception as e:
@@ -511,7 +530,7 @@ def main():
         try:
             d = yf_ticker_info(ticker)
             if d and d['price'] >= 10 and d['volume'] >= 500_000 and d['market_cap'] >= 2_000_000_000:
-                metrics = compute_score(d)
+                metrics = compute_score(d, spy_data)
                 stocks.append({**d, **metrics})
         except Exception:
             continue
