@@ -1,0 +1,62 @@
+{
+  "analysis": "no_lookahead_bias",
+  "spy_daily_factor": true,
+  "best_combinations": [
+    {
+      "name": "Stock Change<-2% + SPY Daily>0%",
+      "n": 3114,
+      "wr": 57.321772639691716,
+      "avg": 0.16742251783073397
+    },
+    {
+      "name": "Stock Change<-2% + SPY Daily<0%",
+      "n": 6496,
+      "wr": 57.11206896551724,
+      "avg": 0.1413025499654801
+    },
+    {
+      "name": "Stock BB>90 + SPY Daily>+0.5%",
+      "n": 37,
+      "wr": 56.75675675675676,
+      "avg": 0.3912683141158938
+    },
+    {
+      "name": "Tuesday + Stock Change<-2% + SPY Daily>0%",
+      "n": 578,
+      "wr": 56.747404844290664,
+      "avg": 0.3261638359978423
+    },
+    {
+      "name": "Stock RSI<30 + SPY Daily>+0.5%",
+      "n": 1965,
+      "wr": 56.08142493638677,
+      "avg": 0.02928747631640627
+    },
+    {
+      "name": "Stock Change<-2% + SPY Daily>+0.5%",
+      "n": 1040,
+      "wr": 55.86538461538461,
+      "avg": 0.16282009023052627
+    },
+    {
+      "name": "Stock Change>+2% + SPY Daily>0%",
+      "n": 6816,
+      "wr": 52.27406103286385,
+      "avg": 0.0803614391131351
+    },
+    {
+      "name": "Stock Change>+2% + SPY Daily>+1%",
+      "n": 1071,
+      "wr": 40.242763772175536,
+      "avg": -0.21771993640702583
+    },
+    {
+      "name": "Stock Change<-2% + SPY Daily>+1%",
+      "n": 135,
+      "wr": 22.22222222222222,
+      "avg": -0.7073297203412837
+    }
+  ],
+  "note": "SPY_DailyChange is known at close, unlike SPY_Overnight which is future data",
+  "date": "2026-05-27T17:55:08.129353"
+}

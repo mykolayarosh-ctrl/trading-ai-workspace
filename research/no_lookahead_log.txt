@@ -1,0 +1,66 @@
+Loading stock data...
+Loaded: 101561 rows
+
+Fetching SPY daily data...
+SPY daily data merged: 101561 rows
+
+================================================================================
+SPY DAILY CHANGE (known at close) vs Overnight Returns
+================================================================================
+
+SPY Daily Condition                             N    Wins  Losses     WR%     AvgRet
+--------------------------------------------------------------------------------
+SPY Daily > +1% (green)                     3,694    1166    2528  31.56%   -0.3403% ❌
+SPY Daily > +0.5%                          21,688   11702    9986  53.96%    0.0643% ⭐
+SPY Daily > 0% (up)                        52,620   27497   25123  52.26%    0.0577% 
+SPY Daily ≈ 0% (-0.5% to +0.5%)            62,781   30818   31963  49.09%   -0.0051% 
+SPY Daily < 0% (down)                      48,479   25144   23335  51.87%    0.0209% 
+SPY Daily < -0.5%                          17,092   10446    6646  61.12%    0.1791% 🔥
+SPY Daily < -1% (red)                       5,544    3518    2026  63.46%    0.3106% 🔥
+SPY Daily < -2% (strong red)                  924     713     211  77.16%    0.5775% 🔥
+
+================================================================================
+COMBINED — Stock condition + SPY Daily Change (NO look-ahead)
+================================================================================
+
+Combined Condition                                             N     WR%     AvgRet
+---------------------------------------------------------------------------
+Stock Change<-2% + SPY Daily>+1%                             135  22.22%   -0.7073% 
+Stock Change<-2% + SPY Daily>+0.5%                         1,040  55.87%    0.1628% ⭐
+Stock Change<-2% + SPY Daily>0%                            3,114  57.32%    0.1674% ⭐
+Stock Change<-2% + SPY Daily<0%                            6,496  57.11%    0.1413% ⭐
+Stock Change>+2% + SPY Daily>+1%                           1,071  40.24%   -0.2177% 
+Stock Change>+2% + SPY Daily>0%                            6,816  52.27%    0.0804% 
+Stock RSI<30 + SPY Daily>+0.5%                             1,965  56.08%    0.0293% ⭐
+Stock BB>90 + SPY Daily>+0.5%                                 37  56.76%    0.3913% ⭐
+Tuesday + Stock Change<-2% + SPY Daily>0%                    578  56.75%    0.3262% ⭐
+
+================================================================================
+TOP PERFORMERS (no look-ahead bias)
+================================================================================
+  Stock Change<-2% + SPY Daily>0%: 57.32% WR (3114 trades, 0.1674% avg)
+  Stock Change<-2% + SPY Daily<0%: 57.11% WR (6496 trades, 0.1413% avg)
+  Stock BB>90 + SPY Daily>+0.5%: 56.76% WR (37 trades, 0.3913% avg)
+  Tuesday + Stock Change<-2% + SPY Daily>0%: 56.75% WR (578 trades, 0.3262% avg)
+  Stock RSI<30 + SPY Daily>+0.5%: 56.08% WR (1965 trades, 0.0293% avg)
+
+================================================================================
+COMPARISON: SPY Daily Change vs SPY Overnight (look-ahead)
+================================================================================
+
+SPY Overnight (look-ahead — future data, NOT usable):
+  SPY Overnight > +0.5%               WR = 70.70%
+  SPY Overnight > 0%                  WR = 62.88%
+  SPY Overnight < 0%                  WR = 35.43%
+
+SPY Daily Change (known at close — USABLE in real-time):
+  SPY Daily > +1%                     WR = 31.56%
+  SPY Daily > +0.5%                   WR = 53.96%
+  SPY Daily > 0%                      WR = 52.26%
+  SPY Daily < 0%                      WR = 51.87%
+
+
+Saved: research/no_lookahead_analysis.json
+================================================================================
+ANALYSIS COMPLETE — NO LOOK-AHEAD BIAS
+================================================================================
