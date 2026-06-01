@@ -179,7 +179,14 @@
     <div class="header">
         <h1>📈 Advanced Evening Stock Screener</h1>
         <p>Gap Up Strategy — Extended Universe</p>
-        <button class="refresh-btn" onclick="window.location.href=window.location.pathname+'?nocache='+Date.now()">🔄 Refresh Data</button>
+        <p style="color: #ffaa00; font-size: 12px; margin-top: 6px;">
+            ⏱️ Generated: <span id="last-updated">Loading...</span>
+            <span id="data-age" style="color: #ff6666; margin-left: 8px;"></span>
+        </p>
+        <button class="refresh-btn" onclick="refreshPage()">🔄 Refresh Data</button>
+        <p id="refresh-msg" style="color: #8899aa; font-size: 11px; margin-top: 6px; display: none;">
+            This is a static snapshot. Full data refresh requires running the generator script.
+        </p>
     </div>
 
     <div class="strategy-note">
@@ -214,6 +221,51 @@
     <div class="stats">
         Last updated: {last_update} | {count} stocks passed filters
     </div>
+
+    <script>
+    // Show when data was generated
+    document.addEventListener('DOMContentLoaded', function() {
+        const lastUpdated = document.getElementById('last-updated');
+        const dataAge = document.getElementById('data-age');
+        
+        // Parse the generation time from the page text
+        const statsText = document.querySelector('.stats').textContent;
+        const match = statsText.match(/Last updated:\s+([\d-]+\s+[\d:]+)/);
+        if (match) {
+            const genTime = new Date(match[1] + ' UTC');
+            const now = new Date();
+            const diffMs = now - genTime;
+            const diffMins = Math.floor(diffMs / 60000);
+            const diffHours = Math.floor(diffMs / 3600000);
+            
+            lastUpdated.textContent = match[1];
+            
+            if (diffMins < 5) {
+                dataAge.textContent = '(just now)';
+                dataAge.style.color = '#00ff88';
+            } else if (diffHours < 1) {
+                dataAge.textContent = '(' + diffMins + ' min ago)';
+                dataAge.style.color = '#ffaa00';
+            } else if (diffHours < 24) {
+                dataAge.textContent = '(' + diffHours + 'h ago)';
+                dataAge.style.color = '#ff6666';
+            } else {
+                dataAge.textContent = '(' + Math.floor(diffHours/24) + 'd ago)';
+                dataAge.style.color = '#ff3333';
+            }
+        } else {
+            lastUpdated.textContent = 'Unknown';
+        }
+    });
+    
+    function refreshPage() {
+        const msg = document.getElementById('refresh-msg');
+        msg.style.display = 'block';
+        
+        // Force cache-bypass reload
+        window.location.href = window.location.pathname + '?t=' + Date.now();
+    }
+    </script>
 
     <table>
         <thead>
