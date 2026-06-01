@@ -1,5 +1,5 @@
 {
-  "processed": 99,
+  "processed": 110,
   "total": 110,
   "results": [
     {
@@ -551,6 +551,76 @@
       "max_return": 1.1713161659513638,
       "min_return": -0.7056179775280835,
       "std": 0.7437270521069609
+    },
+    {
+      "ticker": "DUK",
+      "days": 11,
+      "win_rate": 36.36363636363637,
+      "avg_return": -0.27599422219514974,
+      "median_return": -0.06769907760006966,
+      "max_return": 0.8978195810175338,
+      "min_return": -3.189267352185088,
+      "std": 1.0598640734160039
+    },
+    {
+      "ticker": "SO",
+      "days": 10,
+      "win_rate": 30.0,
+      "avg_return": -0.0963306587230306,
+      "median_return": -0.1334594249079557,
+      "max_return": 0.6615220617862683,
+      "min_return": -0.5920403464532265,
+      "std": 0.3996879083557913
+    },
+    {
+      "ticker": "SRE",
+      "days": 1,
+      "win_rate": 100.0,
+      "avg_return": 0.010822510822494635,
+      "median_return": 0.010822510822494635,
+      "max_return": 0.010822510822494635,
+      "min_return": 0.010822510822494635,
+      "std": NaN
+    },
+    {
+      "ticker": "EXC",
+      "days": 11,
+      "win_rate": 27.27272727272727,
+      "avg_return": -0.21926795331277898,
+      "median_return": -0.2662524961171475,
+      "max_return": 0.4448606883633799,
+      "min_return": -0.77139079080083,
+      "std": 0.4577372373322487
+    },
+    {
+      "ticker": "XEL",
+      "days": 5,
+      "win_rate": 60.0,
+      "avg_return": 0.3210120232934388,
+      "median_return": 0.3046568983026132,
+      "max_return": 2.102744900528841,
+      "min_return": -0.9259259259259189,
+      "std": 1.1963799520793774
+    },
+    {
+      "ticker": "WEC",
+      "days": 2,
+      "win_rate": 50.0,
+      "avg_return": 0.17023925195959744,
+      "median_return": 0.17023925195959744,
+      "max_return": 0.9669021941242084,
+      "min_return": -0.6264236902050135,
+      "std": 1.1266515374492456
+    },
+    {
+      "ticker": "ES",
+      "days": 10,
+      "win_rate": 50.0,
+      "avg_return": -0.11819617067276855,
+      "median_return": -0.06133744896934523,
+      "max_return": 0.4342515945175762,
+      "min_return": -0.7796564936426553,
+      "std": 0.4082360831624487
     }
   ],
   "errors": [
@@ -597,6 +667,10 @@
     "BA: No data",
     "CAT: No data",
     "MMM: No data",
-    "UPS: No data"
+    "UPS: No data",
+    "NSC: No data",
+    "NEE: No data",
+    "D: No data",
+    "AEP: No data"
   ]
 }

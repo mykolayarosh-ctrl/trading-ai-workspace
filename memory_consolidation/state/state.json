@@ -1,0 +1,29 @@
+{
+  "diary": {
+    "count": 10,
+    "last_ts": "2026-06-01T03:56:03.337601",
+    "last_day": 3,
+    "last_sessions": 1,
+    "last_messages": 133,
+    "last_filename": "day3-2026-05-27-spy_overnight_and_stolen_arrows.md",
+    "last_latency_s": 32.4,
+    "last_skip": "no_sessions_today"
+  },
+  "compact": {
+    "count": 10,
+    "last_ts": "2026-06-01T03:56:03.520133",
+    "last_invoke": 4,
+    "last_sessions": 5,
+    "last_messages": 204,
+    "last_latency_s": 21.0,
+    "last_model": "k2p6",
+    "last_skip": "stm_hash_unchanged"
+  },
+  "stm": {
+    "count": 1,
+    "last_ts": "2026-05-26T12:17:57.243534",
+    "last_sessions": 2,
+    "last_messages": 68,
+    "last_chars": 6765
+  }
+}

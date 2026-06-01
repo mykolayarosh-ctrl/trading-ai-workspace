@@ -1,0 +1,13 @@
+{
+  "total_observations": 44582,
+  "tickers_covered": 193,
+  "date_range": "2025-06-24 00:00:00 to 2026-05-22 00:00:00",
+  "mean_overnight_return": 0.0493,
+  "median_overnight_return": 0.0158,
+  "win_rate": 52.05,
+  "annualized_return": 12.42,
+  "annualized_sharpe": 0.5945,
+  "max_drawdown": -100.0,
+  "after_big_up_day_mean": 0.0592,
+  "after_big_down_day_mean": 0.1802
+}

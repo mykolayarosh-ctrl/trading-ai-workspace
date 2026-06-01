@@ -1,0 +1,477 @@
+Polygon.io Close → 4 AM Backtest
+API Key: UMCfr...0F6r
+Tickers: 110
+Rate limit: 5 calls/min → 12s sleep between calls
+Expected time: ~440 minutes
+======================================================================
+
+[1/110] AAPL...
+  Got 1039 hourly bars
+  Overnight: 51 days, WR=60.78%, Avg=0.0578%
+
+[2/110] MSFT...
+  Got 1397 hourly bars
+  Overnight: 68 days, WR=60.29%, Avg=0.0621%
+
+[3/110] GOOGL...
+  Got 1102 hourly bars
+  Overnight: 54 days, WR=62.96%, Avg=0.0192%
+
+[4/110] AMZN...
+  Got 1087 hourly bars
+  Overnight: 53 days, WR=58.49%, Avg=0.0571%
+
+[5/110] TSLA...
+  No data
+
+[6/110] META...
+  Got 1414 hourly bars
+  Overnight: 69 days, WR=66.67%, Avg=0.0821%
+
+[7/110] NVDA...
+  Got 838 hourly bars
+  Overnight: 40 days, WR=62.50%, Avg=0.2033%
+
+[8/110] NFLX...
+  Got 1556 hourly bars
+  Overnight: 42 days, WR=71.43%, Avg=0.1088%
+
+[9/110] AMD...
+  No data
+
+[10/110] INTC...
+  No data
+
+[11/110] QCOM...
+  Got 1683 hourly bars
+  Overnight: 81 days, WR=64.20%, Avg=0.0543%
+
+[12/110] CRM...
+  Got 1597 hourly bars
+  Overnight: 71 days, WR=60.56%, Avg=0.0548%
+
+[13/110] ADBE...
+  No data
+
+[14/110] PYPL...
+  No data
+
+[15/110] UBER...
+  Got 1473 hourly bars
+  Overnight: 70 days, WR=70.00%, Avg=0.0916%
+
+[16/110] ABNB...
+  Got 1572 hourly bars
+  Overnight: 52 days, WR=50.00%, Avg=-0.0336%
+
+[17/110] COIN...
+  No data
+
+[18/110] PLTR...
+  No data
+
+[19/110] SNOW...
+  No data
+
+[20/110] ZM...
+  Got 1444 hourly bars
+  Overnight: 35 days, WR=42.86%, Avg=-0.0735%
+
+[21/110] ROKU...
+  Got 1624 hourly bars
+  Overnight: 58 days, WR=62.07%, Avg=0.1012%
+
+[22/110] SQ...
+  No data
+
+[23/110] SHOP...
+  No data
+
+[24/110] CRWD...
+  No data
+
+[25/110] NET...
+  Got 1595 hourly bars
+  Overnight: 47 days, WR=65.96%, Avg=0.0715%
+
+[26/110] DDOG...
+  Got 1556 hourly bars
+  Overnight: 56 days, WR=60.71%, Avg=-0.0155%
+
+[27/110] FSLY...
+  No data
+
+[28/110] DOCU...
+  No data
+
+[29/110] OKTA...
+  Got 1640 hourly bars
+  Overnight: 67 days, WR=65.67%, Avg=0.1258%
+
+[30/110] TWLO...
+  Got 1480 hourly bars
+  Overnight: 37 days, WR=62.16%, Avg=0.0465%
+
+[31/110] SPY...
+  Got 954 hourly bars
+  Overnight: 46 days, WR=58.70%, Avg=0.0341%
+
+[32/110] QQQ...
+  No data
+
+[33/110] DIA...
+  No data
+
+[34/110] IWM...
+  Got 1056 hourly bars
+  Overnight: 52 days, WR=55.77%, Avg=0.0477%
+
+[35/110] XLF...
+  Got 1519 hourly bars
+  Overnight: 75 days, WR=46.67%, Avg=-0.0105%
+
+[36/110] XLK...
+  No data
+
+[37/110] XLE...
+  No data
+
+[38/110] XLI...
+  Got 1360 hourly bars
+  Overnight: 20 days, WR=35.00%, Avg=-0.0716%
+
+[39/110] XLU...
+  Got 1525 hourly bars
+  Overnight: 34 days, WR=64.71%, Avg=-0.0073%
+
+[40/110] XLP...
+  Got 1434 hourly bars
+  Overnight: 29 days, WR=48.28%, Avg=0.0482%
+
+[41/110] BAC...
+  No data
+
+[42/110] JPM...
+  No data
+
+[43/110] WFC...
+  Got 1591 hourly bars
+  Overnight: 41 days, WR=58.54%, Avg=-0.1059%
+
+[44/110] GS...
+  Got 1483 hourly bars
+  Overnight: 23 days, WR=60.87%, Avg=-0.0292%
+
+[45/110] MS...
+  No data
+
+[46/110] C...
+  No data
+
+[47/110] AXP...
+  Got 1410 hourly bars
+  Overnight: 25 days, WR=56.00%, Avg=-0.0372%
+
+[48/110] V...
+  Got 1515 hourly bars
+  Overnight: 38 days, WR=57.89%, Avg=0.0250%
+
+[49/110] MA...
+  Got 1330 hourly bars
+  Overnight: 16 days, WR=37.50%, Avg=-0.0278%
+
+[50/110] BLK...
+  No data
+
+[51/110] DIS...
+  No data
+
+[52/110] NKE...
+  Got 1524 hourly bars
+  Overnight: 74 days, WR=56.76%, Avg=0.0231%
+
+[53/110] SBUX...
+  Got 1642 hourly bars
+  Overnight: 74 days, WR=54.05%, Avg=-0.0624%
+
+[54/110] MCD...
+  No data
+
+[55/110] KO...
+  No data
+
+[56/110] PEP...
+  No data
+
+[57/110] WMT...
+  Got 1561 hourly bars
+  Overnight: 67 days, WR=61.19%, Avg=0.0175%
+
+[58/110] TGT...
+  Got 1598 hourly bars
+  Overnight: 59 days, WR=64.41%, Avg=0.0224%
+
+[59/110] COST...
+  No data
+
+[60/110] HD...
+  No data
+
+[61/110] LOW...
+  Got 1314 hourly bars
+  Overnight: 8 days, WR=37.50%, Avg=-0.1163%
+
+[62/110] F...
+  Got 1418 hourly bars
+  Overnight: 68 days, WR=52.94%, Avg=-0.0077%
+
+[63/110] GM...
+  Got 1568 hourly bars
+  Overnight: 48 days, WR=45.83%, Avg=-0.0139%
+
+[64/110] T...
+  No data
+
+[65/110] VZ...
+  No data
+
+[66/110] TMUS...
+  Got 1412 hourly bars
+  Overnight: 20 days, WR=35.00%, Avg=-0.0493%
+
+[67/110] CHTR...
+  Got 1333 hourly bars
+  Overnight: 5 days, WR=20.00%, Avg=-0.2514%
+
+[68/110] CMCSA...
+  No data
+
+[69/110] NFLX...
+  No data
+
+[70/110] DISH...
+  No data
+
+[71/110] PFE...
+  Got 1333 hourly bars
+  Overnight: 65 days, WR=67.69%, Avg=0.0785%
+
+[72/110] JNJ...
+  Got 1569 hourly bars
+  Overnight: 42 days, WR=38.10%, Avg=-0.0771%
+
+[73/110] MRK...
+  No data
+
+[74/110] UNH...
+  No data
+
+[75/110] ABBV...
+  Got 1396 hourly bars
+  Overnight: 20 days, WR=40.00%, Avg=-0.0812%
+
+[76/110] LLY...
+  Got 1551 hourly bars
+  Overnight: 46 days, WR=56.52%, Avg=0.0749%
+
+[77/110] BMY...
+  Got 1659 hourly bars
+  Overnight: 64 days, WR=65.62%, Avg=0.0859%
+
+[78/110] AMGN...
+  No data
+
+[79/110] GILD...
+  Got 1485 hourly bars
+  Overnight: 35 days, WR=48.57%, Avg=-0.0110%
+
+[80/110] BIIB...
+  Got 1396 hourly bars
+  Overnight: 19 days, WR=31.58%, Avg=-0.2053%
+
+[81/110] XOM...
+  No data
+
+[82/110] CVX...
+  No data
+
+[83/110] COP...
+  No data
+
+[84/110] EOG...
+  Got 1327 hourly bars
+  Overnight: 18 days, WR=44.44%, Avg=0.2820%
+
+[85/110] OXY...
+  Got 1523 hourly bars
+  Overnight: 74 days, WR=55.41%, Avg=0.0424%
+
+[86/110] SLB...
+  Got 1690 hourly bars
+  Overnight: 75 days, WR=61.33%, Avg=0.0889%
+
+[87/110] HAL...
+  No data
+
+[88/110] PSX...
+  Got 1287 hourly bars
+  Overnight: 10 days, WR=70.00%, Avg=0.0711%
+
+[89/110] VLO...
+  Got 1303 hourly bars
+  Overnight: 10 days, WR=60.00%, Avg=0.4255%
+
+[90/110] MPC...
+  Got 1233 hourly bars
+  Overnight: 2 days, WR=100.00%, Avg=0.4751%
+
+[91/110] BA...
+  No data
+
+[92/110] CAT...
+  No data
+
+[93/110] GE...
+  Got 1547 hourly bars
+  Overnight: 27 days, WR=40.74%, Avg=-0.2168%
+
+[94/110] HON...
+  Got 1394 hourly bars
+  Overnight: 16 days, WR=75.00%, Avg=0.1970%
+
+[95/110] MMM...
+  No data
+
+[96/110] UPS...
+  No data
+
+[97/110] FDX...
+  Got 1416 hourly bars
+  Overnight: 25 days, WR=48.00%, Avg=-0.0739%
+
+[98/110] CSX...
+  Got 1449 hourly bars
+  Overnight: 27 days, WR=48.15%, Avg=-0.0092%
+
+[99/110] UNP...
+  Got 1206 hourly bars
+  Overnight: 7 days, WR=57.14%, Avg=0.1851%
+
+[100/110] NSC...
+  No data
+
+[101/110] NEE...
+  No data
+
+[102/110] DUK...
+  Got 1307 hourly bars
+  Overnight: 11 days, WR=36.36%, Avg=-0.2760%
+
+[103/110] SO...
+  Got 1262 hourly bars
+  Overnight: 10 days, WR=30.00%, Avg=-0.0963%
+
+[104/110] D...
+  No data
+
+[105/110] AEP...
+  No data
+
+[106/110] SRE...
+  Got 1124 hourly bars
+  Overnight: 1 days, WR=100.00%, Avg=0.0108%
+
+[107/110] EXC...
+  Got 1354 hourly bars
+  Overnight: 11 days, WR=27.27%, Avg=-0.2193%
+
+[108/110] XEL...
+  Got 1166 hourly bars
+  Overnight: 5 days, WR=60.00%, Avg=0.3210%
+
+[109/110] WEC...
+  Got 1112 hourly bars
+  Overnight: 2 days, WR=50.00%, Avg=0.1702%
+
+[110/110] ES...
+  Got 1173 hourly bars
+  Overnight: 10 days, WR=50.00%, Avg=-0.1182%
+
+======================================================================
+COMPLETE: 62/110 tickers in 24.2 minutes
+======================================================================
+
+Ticker     Days    WinRate     AvgRet        Max        Min
+------------------------------------------------------------
+MPC           2    100.00%    0.4751%      0.85%      0.10% 🔥
+SRE           1    100.00%    0.0108%      0.01%      0.01% 🔥
+HON          16     75.00%    0.1970%      1.26%     -0.23% 🔥
+NFLX         42     71.43%    0.1088%      0.74%     -0.77% 🔥
+PSX          10     70.00%    0.0711%      2.15%     -2.07% 🔥
+UBER         70     70.00%    0.0916%      0.61%     -1.89% 🔥
+PFE          65     67.69%    0.0785%      0.47%     -1.18% 🔥
+META         69     66.67%    0.0821%      0.74%     -1.01% 🔥
+NET          47     65.96%    0.0715%      1.44%     -1.85% 🔥
+OKTA         67     65.67%    0.1258%      1.21%     -1.07% 🔥
+BMY          64     65.62%    0.0859%      1.00%     -1.18% 🔥
+XLU          34     64.71%   -0.0073%      0.49%     -1.03% 🔥
+TGT          59     64.41%    0.0224%      0.59%     -0.95% 🔥
+QCOM         81     64.20%    0.0543%      0.91%     -1.50% 🔥
+GOOGL        54     62.96%    0.0192%      0.83%     -1.46% 🔥
+NVDA         40     62.50%    0.2033%      4.03%     -1.64% 🔥
+TWLO         37     62.16%    0.0465%      4.37%     -2.30% 🔥
+ROKU         58     62.07%    0.1012%      1.46%     -2.39% 🔥
+SLB          75     61.33%    0.0889%      4.31%     -1.87% 🔥
+WMT          67     61.19%    0.0175%      0.75%     -0.92% 🔥
+GS           23     60.87%   -0.0292%      0.57%     -1.11% 🔥
+AAPL         51     60.78%    0.0578%      0.65%     -1.24% 🔥
+DDOG         56     60.71%   -0.0155%      1.39%     -2.90% 🔥
+CRM          71     60.56%    0.0548%      0.99%     -1.42% 🔥
+MSFT         68     60.29%    0.0621%      0.94%     -0.46% 🔥
+VLO          10     60.00%    0.4255%      2.64%     -0.46% 🔥
+XEL           5     60.00%    0.3210%      2.10%     -0.93% 🔥
+SPY          46     58.70%    0.0341%      0.63%     -0.64% 🔥
+WFC          41     58.54%   -0.1059%      0.55%     -1.64% 🔥
+AMZN         53     58.49%    0.0571%      0.66%     -1.00% 🔥
+V            38     57.89%    0.0250%      0.54%     -0.78% 🔥
+UNP           7     57.14%    0.1851%      1.17%     -0.71% 🔥
+NKE          74     56.76%    0.0231%      1.18%     -1.66% 🔥
+LLY          46     56.52%    0.0749%      0.99%     -0.92% 🔥
+AXP          25     56.00%   -0.0372%      0.60%     -1.56% 🔥
+IWM          52     55.77%    0.0477%      0.85%     -1.04% 🔥
+OXY          74     55.41%    0.0424%      3.14%     -0.80% 🔥
+SBUX         74     54.05%   -0.0624%      1.05%     -2.05% ⭐
+F            68     52.94%   -0.0077%      0.88%     -1.71% ⭐
+ABNB         52     50.00%   -0.0336%      1.12%     -2.07% 
+WEC           2     50.00%    0.1702%      0.97%     -0.63% 
+ES           10     50.00%   -0.1182%      0.43%     -0.78% 
+GILD         35     48.57%   -0.0110%      1.01%     -0.72% 
+XLP          29     48.28%    0.0482%      1.02%     -0.55% 
+CSX          27     48.15%   -0.0092%      0.70%     -0.77% 
+FDX          25     48.00%   -0.0739%      1.58%     -1.98% 
+XLF          75     46.67%   -0.0105%      0.56%     -1.24% 
+GM           48     45.83%   -0.0139%      2.44%     -1.45% 
+EOG          18     44.44%    0.2820%      5.40%     -1.18% 
+ZM           35     42.86%   -0.0735%      0.84%     -1.19% 
+GE           27     40.74%   -0.2168%      0.97%     -1.44% 
+ABBV         20     40.00%   -0.0812%      1.30%     -1.26% 
+JNJ          42     38.10%   -0.0771%      0.50%     -0.66% 
+MA           16     37.50%   -0.0278%      0.42%     -0.47% 
+LOW           8     37.50%   -0.1163%      0.29%     -0.46% 
+DUK          11     36.36%   -0.2760%      0.90%     -3.19% 
+XLI          20     35.00%   -0.0716%      0.98%     -1.13% 
+TMUS         20     35.00%   -0.0493%      1.01%     -1.68% 
+BIIB         19     31.58%   -0.2053%      1.05%     -2.27% 
+SO           10     30.00%   -0.0963%      0.66%     -0.59% 
+EXC          11     27.27%   -0.2193%      0.44%     -0.77% 
+CHTR          5     20.00%   -0.2514%      0.03%     -0.62% 
+
+======================================================================
+OVERALL: 2405 total overnight observations
+Average Win Rate: 55.11%
+Average Return: 0.0252%
+======================================================================
+
+Saved: research/polygon_4am_results.json
+
+DONE

@@ -10,3 +10,4 @@ venv/
 screener.log
 screener_ngrok.log
 
+*.md
