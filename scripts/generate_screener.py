@@ -426,6 +426,7 @@ def generate_html(stocks, spy_data=None):
     
     footer = '''        </tbody>
     </table>
+    </div>
 ''' + sort_script + '''
 </body>
 </html>'''

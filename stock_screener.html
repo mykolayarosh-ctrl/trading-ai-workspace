@@ -176,9 +176,28 @@
         }
         @media (max-width: 768px) {
             body { padding: 10px; }
-            table { font-size: 11px; }
-            th, td { padding: 6px; }
-            .filters { gap: 10px; }
+            .header h1 { font-size: 22px; }
+            .header p { font-size: 12px; }
+            .refresh-btn {
+                padding: 14px 28px;
+                font-size: 16px;
+                width: 100%;
+                max-width: 300px;
+            }
+            .strategy-note { font-size: 11px; padding: 8px 12px; }
+            .filters { gap: 8px; }
+            .filter-badge { padding: 6px 10px; font-size: 11px; }
+            .table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            table { font-size: 11px; min-width: 900px; }
+            th, td { padding: 6px 4px; }
+            .name { font-size: 9px; }
+            .sector { font-size: 9px; }
+            .tier-badge { font-size: 10px; padding: 1px 6px; }
+            .stats { font-size: 11px; }
+            .legend { font-size: 10px; padding: 10px; }
         }
     </style>
 </head>
@@ -226,7 +245,7 @@
     </div>
 
     <div class="stats">
-        Last updated: 2026-06-14 21:53:00 | 92 stocks passed filters
+        Last updated: 2026-06-14 22:20:07 | 92 stocks passed filters
     </div>
 
     <script>
@@ -302,6 +321,7 @@
     }
     </script>
 
+    <div class="table-container">
     <table>
         <thead>
             <tr>
@@ -2348,6 +2368,7 @@
             </tr>
         </tbody>
     </table>
+    </div>
 
     <script>
     (function() {
