@@ -1,14 +1,48 @@
 from flask import Flask, send_file, render_template_string, jsonify
 import os
 import subprocess
+import threading
 import json
 from datetime import datetime
 
 app = Flask(__name__)
+refresh_process = None
+refresh_start_time = None
+refresh_status = {'running': False, 'last_result': None, 'last_output': ''}
+
+def run_refresh_in_background():
+    global refresh_process, refresh_start_time, refresh_status
+    refresh_status['running'] = True
+    refresh_status['last_result'] = None
+    refresh_status['last_output'] = ''
+    refresh_start_time = datetime.now().isoformat()
+    
+    try:
+        proc = subprocess.Popen(
+            ['python3', 'scripts/generate_screener.py'],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True
+        )
+        refresh_process = proc
+        stdout, stderr = proc.communicate(timeout=600)  # 10 min max
+        
+        refresh_status['last_output'] = (stdout + '\n' + stderr)[-1000:]
+        if proc.returncode == 0:
+            refresh_status['last_result'] = 'success'
+        else:
+            refresh_status['last_result'] = 'error: ' + stderr[-500:]
+    except subprocess.TimeoutExpired:
+        proc.kill()
+        refresh_status['last_result'] = 'timeout (10 min)'
+    except Exception as e:
+        refresh_status['last_result'] = f'exception: {str(e)}'
+    finally:
+        refresh_status['running'] = False
+        refresh_process = None
 
 @app.route('/')
 def index():
-    """Show stock screener"""
     if os.path.exists('stock_screener.html'):
         return send_file('stock_screener.html')
     else:
@@ -25,7 +59,6 @@ def index():
 
 @app.route('/api/health')
 def health():
-    """Health check endpoint"""
     return jsonify({
         'status': 'ok',
         'timestamp': datetime.now().isoformat(),
@@ -34,42 +67,35 @@ def health():
 
 @app.route('/api/refresh', methods=['POST', 'GET'])
 def refresh():
-    """Trigger manual refresh (runs generate_screener.py)"""
-    try:
-        result = subprocess.run(
-            ['python3', 'scripts/generate_screener.py'],
-            capture_output=True,
-            text=True,
-            timeout=300  # 5 minutes max
-        )
-        
-        if result.returncode == 0:
-            return jsonify({
-                'status': 'success', 
-                'message': 'Screener updated successfully',
-                'output': result.stdout[-500:] if result.stdout else '',
-                'timestamp': datetime.now().isoformat()
-            })
-        else:
-            return jsonify({
-                'status': 'error',
-                'message': 'Generation failed',
-                'error': result.stderr[-500:] if result.stderr else 'Unknown error'
-            }), 500
-    except subprocess.TimeoutExpired:
+    global refresh_status
+    if refresh_status['running']:
         return jsonify({
-            'status': 'error',
-            'message': 'Generation timed out (5 minutes)'
-        }), 500
-    except Exception as e:
-        return jsonify({
-            'status': 'error',
-            'message': str(e)
-        }), 500
+            'status': 'running',
+            'message': 'Refresh already in progress',
+            'started': refresh_start_time
+        })
+    
+    thread = threading.Thread(target=run_refresh_in_background)
+    thread.daemon = True
+    thread.start()
+    
+    return jsonify({
+        'status': 'started',
+        'message': 'Refresh started in background. Check /api/refresh/status for progress.'
+    })
+
+@app.route('/api/refresh/status')
+def refresh_status_endpoint():
+    global refresh_status
+    return jsonify({
+        'running': refresh_status['running'],
+        'last_result': refresh_status['last_result'],
+        'started': refresh_start_time,
+        'last_output': refresh_status['last_output'][-500:] if refresh_status['last_output'] else ''
+    })
 
 @app.route('/api/status')
 def status():
-    """Get current data status"""
     try:
         if os.path.exists('stock_screener.html'):
             mtime = os.path.getmtime('stock_screener.html')
