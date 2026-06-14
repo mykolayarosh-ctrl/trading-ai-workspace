@@ -67,13 +67,14 @@ def health():
 
 @app.route('/api/refresh', methods=['POST', 'GET'])
 def refresh():
-    global refresh_status
-    if refresh_status['running']:
-        return jsonify({
-            'status': 'running',
-            'message': 'Refresh already in progress',
-            'started': refresh_start_time
-        })
+    global refresh_process, refresh_status
+    # If refresh is running, kill it and start new
+    if refresh_status['running'] and refresh_process:
+        try:
+            refresh_process.kill()
+        except:
+            pass
+        refresh_status['running'] = False
     
     thread = threading.Thread(target=run_refresh_in_background)
     thread.daemon = True
