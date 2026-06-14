@@ -226,7 +226,7 @@
     </div>
 
     <div class="stats">
-        Last updated: 2026-06-14 19:20:01 | 92 stocks passed filters
+        Last updated: 2026-06-14 21:53:00 | 92 stocks passed filters
     </div>
 
     <script>
@@ -266,11 +266,39 @@
     });
     
     function refreshPage() {
+        const btn = document.querySelector('.refresh-btn');
         const msg = document.getElementById('refresh-msg');
-        msg.style.display = 'block';
+        const lastUpdated = document.getElementById('last-updated');
         
-        // Force cache-bypass reload
-        window.location.href = window.location.pathname + '?t=' + Date.now();
+        btn.disabled = true;
+        btn.textContent = '🔄 Updating...';
+        msg.style.display = 'none';
+        
+        fetch('/api/refresh', { method: 'POST' })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    btn.textContent = '✅ Updated!';
+                    lastUpdated.textContent = 'Just now';
+                    document.getElementById('data-age').textContent = '';
+                    msg.textContent = 'Data refreshed! Reloading page...';
+                    msg.style.display = 'block';
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 2000);
+                } else {
+                    btn.textContent = '❌ Error';
+                    msg.textContent = 'Error: ' + (data.message || 'Unknown error');
+                    msg.style.display = 'block';
+                    btn.disabled = false;
+                }
+            })
+            .catch(error => {
+                btn.textContent = '❌ Failed';
+                msg.textContent = 'Network error: ' + error.message;
+                msg.style.display = 'block';
+                btn.disabled = false;
+            });
     }
     </script>
 
@@ -665,7 +693,7 @@
                 <td>1.04x</td>
                 <td>98.0%</td>
                 <td class="positive">+5.33%</td>
-                <td>$48.4B</td>
+                <td>$49.6B</td>
                 <td class="sector">Financial Services</td>
             </tr>
             <tr class="highlight">

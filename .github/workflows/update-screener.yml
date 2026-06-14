@@ -2,7 +2,7 @@ name: Update Stock Screener
 
 on:
   schedule:
-    - cron: '0 21 * * 1-5'  # Monday-Friday at 21:00 UTC (16:00 ET)
+    - cron: '0 15 * * 1-5'  # Monday-Friday at 15:00 UTC (10:00 ET / 11:00 EDT)
   workflow_dispatch:  # Manual trigger
 
 jobs:
