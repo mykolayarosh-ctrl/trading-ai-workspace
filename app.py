@@ -44,7 +44,9 @@ def run_refresh_in_background():
 @app.route('/')
 def index():
     if os.path.exists('stock_screener.html'):
-        return send_file('stock_screener.html')
+        return send_file('stock_screener.html', 
+                         mimetype='text/html',
+                         cache_timeout=0)  # No cache
     else:
         return render_template_string('''
         <html>

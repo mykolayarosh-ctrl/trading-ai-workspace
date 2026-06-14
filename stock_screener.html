@@ -245,7 +245,7 @@
     </div>
 
     <div class="stats">
-        Last updated: 2026-06-14 23:37:20 | 92 stocks passed filters
+        Last updated: 2026-06-14 23:51:14 | 92 stocks passed filters
     </div>
 
     <script>
@@ -287,14 +287,18 @@
     function refreshPage() {
         const btn = document.querySelector('.refresh-btn');
         const msg = document.getElementById('refresh-msg');
-        const lastUpdated = document.getElementById('last-updated');
         
         btn.disabled = true;
         btn.textContent = '🔄 Starting...';
         msg.style.display = 'none';
         
         fetch('/api/refresh', { method: 'POST' })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('API not available');
+                }
+                return response.json();
+            })
             .then(data => {
                 if (data.status === 'started' || data.status === 'running') {
                     btn.textContent = '🔄 Updating...';
@@ -309,10 +313,9 @@
                 }
             })
             .catch(error => {
-                btn.textContent = '❌ Failed';
-                msg.textContent = 'Network error: ' + error.message;
-                msg.style.display = 'block';
-                btn.disabled = false;
+                // Fallback: API not available (GitHub Pages), just reload
+                btn.textContent = '🔄 Reloading...';
+                window.location.href = window.location.pathname + '?t=' + Date.now();
             });
     }
     
@@ -321,11 +324,14 @@
         const msg = document.getElementById('refresh-msg');
         
         fetch('/api/refresh/status')
-            .then(r => r.json())
+            .then(r => {
+                if (!r.ok) throw new Error('API unavailable');
+                return r.json();
+            })
             .then(data => {
                 if (data.running) {
                     msg.textContent = 'Fetching data... (started ' + data.started + ')';
-                    setTimeout(pollRefreshStatus, 5000);  // poll every 5s
+                    setTimeout(pollRefreshStatus, 5000);
                 } else if (data.last_result === 'success') {
                     btn.textContent = '✅ Updated!';
                     msg.textContent = 'Data refreshed! Reloading...';
