@@ -9,6 +9,10 @@ from PIL import Image, ImageDraw, ImageFont
 import tempfile
 from datetime import datetime
 
+# Fix for Pillow >= 10.0 (ANTIALIAS removed)
+if not hasattr(Image, 'ANTIALIAS'):
+    Image.ANTIALIAS = Image.LANCZOS
+
 # Pexels API (free: 200 requests/hour)
 PEXELS_API_KEY = os.getenv('PEXELS_API_KEY', '')
 PEXELS_VIDEO_URL = "https://api.pexels.com/videos/search"
