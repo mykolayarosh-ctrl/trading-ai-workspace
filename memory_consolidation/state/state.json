@@ -1,7 +1,7 @@
 {
   "diary": {
-    "count": 10,
-    "last_ts": "2026-06-01T03:56:03.337601",
+    "count": 32,
+    "last_ts": "2026-06-14T03:48:41.004049",
     "last_day": 3,
     "last_sessions": 1,
     "last_messages": 133,
@@ -10,12 +10,12 @@
     "last_skip": "no_sessions_today"
   },
   "compact": {
-    "count": 10,
-    "last_ts": "2026-06-01T03:56:03.520133",
-    "last_invoke": 4,
-    "last_sessions": 5,
-    "last_messages": 204,
-    "last_latency_s": 21.0,
+    "count": 32,
+    "last_ts": "2026-06-14T03:48:41.277419",
+    "last_invoke": 5,
+    "last_sessions": 6,
+    "last_messages": 264,
+    "last_latency_s": 19.2,
     "last_model": "k2p6",
     "last_skip": "stm_hash_unchanged"
   },
