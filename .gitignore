@@ -1,13 +1,38 @@
-*.log
-openclaw.log
-*.tmp
+# Python
 __pycache__/
-.openclaw/
-*.log
-*.tmp
-__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
 venv/
-screener.log
-screener_ngrok.log
+env/
+*.egg-info/
 
-*.md
+# Temporary files
+*.tmp
+*.temp
+temp/
+audio/
+output/
+downloads/
+*.mp3
+*.mp4
+*.png
+*.jpg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+server.log
+
+# Local test files
+test_*.sh
